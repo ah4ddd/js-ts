@@ -1,5 +1,5 @@
 const name = "Ahad";
-const age = 21;
+const age = "21";
 const numberAge = Number(age);
 const isAdmin = true;
 
