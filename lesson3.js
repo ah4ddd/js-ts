@@ -23,6 +23,7 @@ if (1) { // Need a Boolean here, convert this value to true
 
 const username = "Ahad";
 const isAdmin = true;
+const isOwner = true;
 
 if (username && isAdmin) {
     console.log(`User is Admin: ${username}`);
@@ -31,3 +32,9 @@ if (username && isAdmin) {
 } else {
     console.log("User does not exist.");
 }
+
+
+if (isAdmin || isOwner) {
+    console.log("Access granted");
+}
+
