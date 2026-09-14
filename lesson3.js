@@ -7,3 +7,19 @@ if (age < 13){
 } else {
 	console.log("Adult");
 }
+
+
+if (true) {
+	console.log("YES");
+}
+if (1) { // Need a Boolean here, convert this value to true
+	console.log("YES");
+}
+
+const username = "";
+
+if (username) {
+	console.log(`Username exists: ${username}`);
+} else {
+	console.log("User does not exist");
+}
