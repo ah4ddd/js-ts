@@ -33,3 +33,9 @@ console.log(10 + 5 * 2); // 20 because multiplication happens before addition.
 console.log((10 + 5) * 2); // 30 > Parentheses override it
 
 
+// Expression (something that produces a value)
+console.log(a ** 10);
+if (a >= b) {
+    console.log("EXPRESSION EXPRESSED");
+}
+
