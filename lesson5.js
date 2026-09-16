@@ -22,8 +22,9 @@ console.log(count++); // 0 cos: Use the current value, then increment.
 count++; // count = count + 1 or count += 1
 console.log(count)
 
+// Decrement
 let subs = 5
-console.log(--subs); // Increment first, then use the value.
+console.log(--subs); // Decrement first, then use the value.
 subs--; // subs = subs - 1 or subs -= 1
 console.log(subs)
 
@@ -38,4 +39,3 @@ console.log(a ** 10);
 if (a >= b) {
     console.log("EXPRESSION EXPRESSED");
 }
-
