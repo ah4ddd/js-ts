@@ -38,7 +38,6 @@ console.log()
 
 // While loop
 let i = 0;
-
 while (i < 5) {
     console.log(i)
     i++;
@@ -72,10 +71,19 @@ for (let i = 0; i < 10; i++) {
 
 console.log()
 
-//continue -> Skip the rest of this iteration, then move to the next one.
+// Continue -> Skip the rest of this iteration, then move to the next one.
 for (let i = 0; i < 5; i++) {
     if (i === 2) {
         continue
     }
     console.log(i);
+}
+
+console.log()
+
+// Nested Loops
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 2; j++) {
+        console.log(i, j)
+    }
 }
