@@ -1,9 +1,9 @@
-const name = "Ahad";
+const username = "Ahad";
 const age = "21";
 const numberAge = Number(age);
 const isAdmin = true;
 
-console.log(typeof name);
+console.log(typeof username);
 console.log(typeof age);
 console.log(typeof isAdmin);
 console.log(typeof numberAge);

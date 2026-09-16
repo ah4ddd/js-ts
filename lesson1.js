@@ -10,11 +10,11 @@ console.log(age);
 
 let score = 100;
 
-const name = "Ahad";
+const username = "Ahad";
 
 console.log(score);
 
-console.log(name);
+console.log(username);
 
 score = 200;
 

@@ -34,3 +34,40 @@ for (let i = 5; i > 0; i--) {
     console.log(i);
 }
 
+console.log()
+
+// While loop
+let i = 0;
+
+while (i < 5) {
+    console.log(i)
+    i++;
+}
+
+console.log()
+
+/*
+The Classic Infinite Loop
+
+This is dangerous:
+    let i = 0;
+
+    while (i < 5) {
+        console.log(i);
+    }
+
+The missing piece is:
+i++;
+*/
+
+console.log()
+
+// break
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}
+
+//continue
