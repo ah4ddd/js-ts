@@ -62,7 +62,7 @@ i++;
 
 console.log()
 
-// break
+// break -> kill the entire loop
 for (let i = 0; i < 10; i++) {
     if (i === 5) {
         break;
@@ -70,4 +70,12 @@ for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 
-//continue
+console.log()
+
+//continue -> Skip the rest of this iteration, then move to the next one.
+for (let i = 0; i < 5; i++) {
+    if (i === 2) {
+        continue
+    }
+    console.log(i);
+}
