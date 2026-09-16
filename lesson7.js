@@ -19,4 +19,23 @@ function greet(username) {
     console.log(`Hello ${username}`);
 }
 
-greet(18)
+greet("Ahad")
+
+
+// Multiple Parameters
+function add(a, b) {
+    console.log(a + b);
+}
+
+add(17, 13)
+
+//return
+function subs(a, b) {
+    return a - b;
+}
+
+console.log(subs(17, 7));
+
+const result = subs(100, 89);
+console.log(result);
+
