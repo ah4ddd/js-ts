@@ -1,5 +1,17 @@
 // Loops
 
+/*
+FOR:
+    for (initialization; condition; update) {
+        body
+    }
+
+WHILE:
+    while (condition) {
+        body
+    }
+*/
+
 // Part 1 — Initialization -> let i = 0 . Create i and start at 0.
 
 // Part 2 — Condition -> i < 5 Before every iteration,
@@ -87,3 +99,6 @@ for (let i = 0; i < 3; i++) {
         console.log(i, j)
     }
 }
+
+//console.log(j) -> error Because: let j is block-scoped,
+// The j belongs to the for block
