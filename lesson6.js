@@ -14,7 +14,7 @@ WHILE:
 
 // Part 1 — Initialization -> let i = 0 . Create i and start at 0.
 
-// Part 2 — Condition -> i < 5 Before every iteration,
+// Part 2 — Condition -> i < 6 Before every iteration,
 // JavaScript asks: Is this still true?
 
 // Part 3 — Update -> i++
