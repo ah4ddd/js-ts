@@ -62,7 +62,7 @@ const team = [
 console.log(team[0].name);
 
 // Methods -> Function stored object property is commonly called method
-user.greet = function (user) {
+user.greet = function getUser(user) {
     console.log(`Hello ${user}!`);
 }
 user.greet(user.name);
@@ -70,9 +70,10 @@ user.greet(user.name);
 // A Method Can Access the Object
 // this.name refers to the name associated with the object in this method call\
 // Objects can have methods, and methods can work with object data.
-user.dream = function () {
+user.dream = function getDream() {
     console.log(`${this.name} wants to be free`);
 }
 user.dream();
+console.log(user);
 
 // Objects Are Going to Become Your Backend Bread and Butter
