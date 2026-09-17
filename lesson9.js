@@ -8,6 +8,8 @@ const user = {
     isAdmin: true
 };
 
+console.log(user)
+
 // Accessing Properties
 console.log(user.name);
 
@@ -22,14 +24,23 @@ console.log(user["country"])
 const property = "email"
 console.log(user[property])
 
+// Changing Properties
+user.age = 22
+console.log(user.age)
 
+// Adding New Properties
+user.career = "Software Engineer";
+console.log(user.career)
 
+// Deleting Properties
+delete user.country
+console.log(user)
 
+// Objects Can Store Anything
+user.languages = ["Python", "JavaScript", "Go", "SQL"]
+console.log(user.languages)
 
-
-
-
-
+// Nested Onjects
 
 
 // Take the value currently stored at freq[num].
