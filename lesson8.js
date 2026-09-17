@@ -7,7 +7,7 @@ console.log(fruits[0]);
 console.log(fruits[2]);
 console.log(fruits[1]);
 
-// Chaning an Element
+// Chaning an Element (mutation)
 fruits[1] = "mango";
 console.log(fruits[1]);
 
@@ -87,4 +87,3 @@ console.log()
 for (const index in fruits) {
     console.log(index);
 }
-
