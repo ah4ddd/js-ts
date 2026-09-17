@@ -25,17 +25,6 @@ console.log(fruits);
 fruits.pop();
 console.log(fruits);
 
-// looping
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i])
-}
-
-console.log();
-
-for (const fruit of fruits) {
-    console.log(fruit);
-}
-
 // Add to Beginning
 console.log(fruits);
 fruits.unshift("cherry");
@@ -70,4 +59,32 @@ const matrix = [
 console.log(matrix[0][0]);
 console.log(matrix[2][2]);
 
+// Looping Through an Array
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i])
+}
+
+console.log();
+
+// for...of
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+
+console.log();
+
+// while
+let i = 0
+while (i < fruits.length) {
+    console.log(fruits[i]);
+    i++;
+
+}
+
+console.log()
+
+// for...in (Index/Keys)
+for (const index in fruits) {
+    console.log(index);
+}
 
