@@ -9,12 +9,14 @@ const user = {
     age: 21,
     address: {
         city: "Lucknow",
-        country: "India"
+        state: "UP",
+        country: "India",
+
     }
 };
 
-const { name, age, country } = user;
-console.log(name, age, country);
+const { name, age } = user;
+console.log(name, age);
 
 // Renaming During Destructuring
 const { name: userName } = user;
@@ -22,4 +24,9 @@ console.log(userName);
 
 // Destructuring Nested Objects
 const { address } = user;
-console.log(address.city)
+console.log(address.country)
+
+// Destructure deeper
+const { address: { city, country, state } } = user;
+console.log(city, state)
+
