@@ -11,12 +11,14 @@ const user = {
         city: "Lucknow",
         state: "UP",
         country: "India",
+        role: "Admin",
+        email: "ahad@example.com"
 
     }
 };
 
-const { name, age } = user;
-console.log(name, age);
+const { name, age, role, email } = user;
+console.log(name, age, role);
 
 // Renaming During Destructuring
 const { name: userName } = user;
@@ -42,5 +44,24 @@ const integers = [40, 50, 60];
 const [d, , f] = integers;
 console.log(d, f);
 
-//Swapping Variables
+//Swapping Variables -> Array destructuring being used for assignment
+let g = 10;
+let h = 20;
+[g, h] = [h, g];
+console.log(g);
+console.log(h);
 
+// Function Parameters
+function greet({ name }) {
+    console.log(`Hello ${name}`);
+}
+greet({ name: name })
+
+// The Rule
+// Object -> Property Based
+// const {name, age} = user;
+// name -> user.name, user.age
+
+// Array -> Position Based
+// const [first, second] = numbers;
+// first -> numbers[0], second -> numbers[1]
