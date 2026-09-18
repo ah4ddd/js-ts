@@ -36,3 +36,11 @@ const [a, b, c] = numbers;
 console.log(a);
 console.log(b);
 console.log(c);
+
+// Skip Array Elements
+const integers = [40, 50, 60];
+const [d, , f] = integers;
+console.log(d, f);
+
+//Swapping Variables
+
