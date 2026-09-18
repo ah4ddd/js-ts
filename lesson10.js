@@ -24,9 +24,15 @@ console.log(userName);
 
 // Destructuring Nested Objects
 const { address } = user;
-console.log(address.country)
+console.log(address.country);
 
 // Destructure deeper
 const { address: { city, country, state } } = user;
-console.log(city, state)
+console.log(city, state);
 
+// Array Destructuring
+const numbers = [10, 20, 30];
+const [a, b, c] = numbers;
+console.log(a);
+console.log(b);
+console.log(c);
