@@ -11,10 +11,9 @@ const user = {
         city: "Lucknow",
         state: "UP",
         country: "India",
-        role: "Admin",
-        email: "ahad@example.com"
-
-    }
+    },
+    role: "Admin",
+    email: "ahad@example.com"
 };
 
 const { name, age, role, email } = user;
