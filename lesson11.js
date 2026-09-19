@@ -1,26 +1,27 @@
 // Spread Syntax & Rest Parameters ...
 
-// SPREAD = "open this thing up"
-const nums = [1, 2, 3];
-console.log(nums); // [1, 2, 3]
+// SPREAD
+// Take something together and distribute its individual parts outward.
 // Take the elements inside nums and spread them here.
-const newNums = [...nums];
-console.log(newNums); // 1, 2, 3
-console.log([...nums, ...nums]);
+// Spread with array
+const numbers = [10, 20, 30];
+console.log(...numbers);
 
-// REST -> Rest is almost the opposite idea.
-// Take all the remaining arguments and
-// collect them into an array called numbers.
-function add(...numbers) {
-    console.log(numbers);
-}
-// Take all the remaining arguments and collect them into an array called nums
-add(10, 20, 30, 40);
+// concatenation of array
+console.log([...numbers, ...numbers]);
 
-function greet(firstName, ...others) {
-    console.log(firstName);
-    console.log(others);
-}
+// The fundamental mental model
+// Spread: Take one thing → spread its contents out -> ...array
+// Rest: Take multiple things → collect them into one thing -> ...parameters
 
-greet("Ahad", "Ali", "John", "Mike");
+// SPREAD: [1, 2, 3] -> 1, 2, 3 (unpack)
+// REST: 1, 2, 3 -> [1, 2, 3] (collect)
+
+// Spread creates a new array
+// Create a new array and insert all the elements of numbers into it
+const copy = [...numbers];
+copy.push(40);
+// Different arrays
+console.log(numbers);
+console.log(copy);
 
