@@ -41,7 +41,8 @@ console.log(skills);
 // Spread works with objects too
 const user = {
     name: "Ahad",
-    age: 21
+    age: 21,
+    role: "Software Developer"
 };
 const userCopy = { ...user }; // creates a new outer object.
 console.log(userCopy);
@@ -81,11 +82,31 @@ sub(10, 20, 30);
 
 // Why is it called REST?
 // because it means -> the rest of arguments
-function test(first, second, ...rest) { // Rest must come at the end
+// Rest must come at the end
+function test(first, second, ...rest) {
     console.log(first);
     console.log(second);
     console.log(rest);
 }
 test(10, 20, 30, 40, 50, 60, 70, 80);
 
-//
+// Practical Algorithm
+// Inside each call, numbers is simply an array.
+function total(...numbers) {
+    let sum = 0;
+    for (let nums of numbers) {
+        sum += nums
+    }
+    return sum;
+}
+
+console.log(total(150, 10, 40, 55, 70));
+
+// Spread + destructuring
+const digits = [4, 5, 6, 7, 8, 9, 10];
+const [first, second, ...rest] = digits;
+console.log(first, second, rest);
+
+// Spread with objects
+const { name, ...otherDetails } = user;
+console.log(name, otherDetails);
