@@ -3,7 +3,7 @@
 // SPREAD
 // Take something together and distribute its individual parts outward.
 // Take the elements inside nums and spread them here.
-// Spread with array
+// Spread with array (one array -> individual values)
 const numbers = [10, 20, 30];
 console.log(...numbers);
 
@@ -24,7 +24,7 @@ console.log(copy);
 
 // Adding elements while spreading
 const newNumbers = [0, ...numbers, 40];
-console.log(newNumbers)
+console.log(newNumbers);
 
 // concatenation of array
 console.log([...numbers, ...numbers]);
@@ -70,6 +70,22 @@ function add(a, b, c) {
 };
 
 const nums = [50, 60, 70];
-console.log(add(...nums));
+console.log(add(...nums)); // 3 arguments
 
+// Rest Parameters (the rest of the arguments)
+// Individual values -> one array
+function sub(...nums) {
+    console.log(nums);
+};
+sub(10, 20, 30);
 
+// Why is it called REST?
+// because it means -> the rest of arguments
+function test(first, second, ...rest) { // Rest must come at the end
+    console.log(first);
+    console.log(second);
+    console.log(rest);
+}
+test(10, 20, 30, 40, 50, 60, 70, 80);
+
+//
