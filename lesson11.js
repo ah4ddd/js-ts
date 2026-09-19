@@ -26,8 +26,6 @@ console.log(copy);
 const newNumbers = [0, ...numbers, 40];
 console.log(newNumbers);
 
-// concatenation of array
-console.log([...numbers, ...numbers]);
 // Combining arrays
 const frontend = ["HTML", "CSS", "JavaScript"];
 const backend = ["Python", "fastapi", "SQL"];
