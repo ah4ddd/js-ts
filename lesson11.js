@@ -53,3 +53,23 @@ const updatedUser = {
 };
 console.log(updatedUser);
 
+// overwriting properties
+// object properties appearing later overwrite earlier
+// properties with the same key
+// Order matters
+const updateTheUser = {
+    ...updatedUser,
+    age: 22
+};
+
+console.log(updateTheUser);
+
+// Spread with function calls
+function add(a, b, c) {
+    return a + b + c;
+};
+
+const nums = [50, 60, 70];
+console.log(add(...nums));
+
+
