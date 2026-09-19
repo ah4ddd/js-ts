@@ -110,3 +110,30 @@ console.log(first, second, rest);
 // Spread with objects
 const { name, ...otherDetails } = user;
 console.log(name, otherDetails);
+
+// Spread vs Destructuring
+// Destructuring -> Takes things apart into named variables.
+// Spread -> Takes things apart and expands them into another structure/context.
+
+/*
+SPREAD (...)
+----------------
+Expand / unpack
+
+[...arr]
+{...obj}
+fn(...arr)
+
+One thing → many values
+
+
+REST (...)
+----------------
+Collect / pack
+
+function fn(...args)
+const [first, ...rest] = arr
+const {name, ...details} = obj
+
+Many values → one collection
+ */
