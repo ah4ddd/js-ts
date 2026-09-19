@@ -34,4 +34,22 @@ const backend = ["Python", "fastapi", "SQL"];
 const skills = [...frontend, ...backend];
 console.log(skills);
 
-//
+// Spread gives you a shallow copy.
+// "Shallow" means the outer container is copied,
+//  but nested objects/arrays aren't recursively cloned.
+
+// Spread works with objects too
+const user = {
+    name: "Ahad",
+    age: 21
+};
+const userCopy = { ...user }; // creates a new outer object.
+console.log(userCopy);
+
+// Adding properties with object spread
+const updatedUser = {
+    ...user,
+    country: "India"
+};
+console.log(updatedUser);
+
