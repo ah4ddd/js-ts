@@ -7,9 +7,6 @@
 const numbers = [10, 20, 30];
 console.log(...numbers);
 
-// concatenation of array
-console.log([...numbers, ...numbers]);
-
 // The fundamental mental model
 // Spread: Take one thing → spread its contents out -> ...array
 // Rest: Take multiple things → collect them into one thing -> ...parameters
@@ -25,3 +22,16 @@ copy.push(40);
 console.log(numbers);
 console.log(copy);
 
+// Adding elements while spreading
+const newNumbers = [0, ...numbers, 40];
+console.log(newNumbers)
+
+// concatenation of array
+console.log([...numbers, ...numbers]);
+// Combining arrays
+const frontend = ["HTML", "CSS", "JavaScript"];
+const backend = ["Python", "fastapi", "SQL"];
+const skills = [...frontend, ...backend];
+console.log(skills);
+
+//
