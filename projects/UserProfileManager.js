@@ -17,13 +17,13 @@ const { name, age, country, role, skills, isEmployed } = user;
 console.log(`Hello, ${name}!`);
 console.log(`You are ${age} old`);
 
-if (age > 18) {
+if (age >= 18) {
     console.log("User is adult!");
 }
 
 skills.push("TypeScript");
 
-user.age += 1;
+age += 1;
 
 console.log(`Numbers of skills: ${skills.length}`);
 
