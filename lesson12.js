@@ -41,14 +41,26 @@ const greeting = (n) => {
     console.log(`Hello ${n}`)
 }
 greeting("Ahad");
+
 // If the function has one parameter, you can omit the parentheses
-numbers.forEach(number => {
-    console.log(number / 2);
-});
+//  Why can you remove the {} ? Because an arrow function has a short form
+//  for when its body is just one expression.
+// Multiple statements → braces
+// One expression → braces can be removed
+numbers.forEach(number => console.log(number / 2));
+
 // And if the function contains only one expression that you want to return,
-//  you can remove the braces and return
+// you can remove the braces and return
 const double = num => num * 2;
 console.log(double(100));
+
+// The callback can receive more than the value
+// eg: value, index, array
+// The third argument is the original array.
+const fruits = ["kiwi", "orange", "mango"];
+fruits.forEach((fruit, index) => {
+    console.log(index, fruit);
+});
 
 // map() -> map() goes through an array, does something to each element,
 // and creates a NEW array containing the results.
@@ -69,3 +81,4 @@ console.log(tripled)
 // The most important distinction right now
 // forEach → performs an action for every element.
 // map → transforms every element and gives you a new array.
+
