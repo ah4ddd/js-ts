@@ -64,6 +64,8 @@ fruits.forEach((fruit, index) => {
 
 // map() -> map() goes through an array, does something to each element,
 // and creates a NEW array containing the results.
+// Take every element → transform it → put the result into a new array.
+// map() always gives you a new array
 const doubled = numbers.map(function (number) {
     // Give map() the result for each number,
     // so it can put those results into the new array
@@ -75,6 +77,10 @@ console.log(doubled);
 // map() with arrow function
 // New array is ultimately stored in tripled,
 // because map() returns that new array.
+// If you're using the short arrow-function syntax,
+// you don't write return
+// No {} → automatic return
+// {} → you must write return
 const tripled = numbers.map(num => num * 3);
 console.log(tripled)
 
