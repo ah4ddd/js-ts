@@ -99,3 +99,11 @@ const evenNumbers = numBers.filter(n => {
     return n % 2 === 0;
 });
 console.log(evenNumbers);
+
+// find() — find the first matching element
+// find() stops once it finds one
+// filter → ALL matching elements
+// find   → FIRST matching element
+const result = numBers.find(n => n > 4);
+console.log(result);
+
