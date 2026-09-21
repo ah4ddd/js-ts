@@ -116,5 +116,48 @@ console.log(hasEven);
 // every() -- Do all pass?
 // are all even numbers?
 const allEven = numBers.every(n => n % 2 === 0);
-console.log(allEven)
+console.log(allEven);
 
+// reduce() -- it introduces a new idea: the accumulator.
+/*
+The full shape is:
+const result = array.reduce(
+    function (accumulator, currentValue) {
+        // do something
+        return newAccumulator;
+    },
+    initialValue
+);
+or:
+const result = array.reduce(
+    (accumulator, currentValue) => {
+        return newAccumulator;
+    },
+    initialValue
+);
+*/
+// reduce() lets you express the same idea as an accumulation operation.
+// Take every element, combine it with an accumulating value,
+// and eventually produce one final result.
+// acc is accumulator, think of it as running total.
+// Take the current accumulated result and the current element,
+// combine them, and give the new accumulated result back.
+// Whatever you return becomes the new acc for the next iteration.
+// The 0 is the initial value of the accumulator.
+// acc = 0, before the loop starts.
+// acc = the value being carried forward
+// reduce() -> Process every element → produce ONE final value.
+const total = numBers.reduce(
+    (acc, number) => acc + number, 0
+);
+console.log(total);
+
+const makeString = numBers.reduce(
+    (acc, n) => acc + " " + n, 0
+);
+console.log(makeString);
+
+const helloWorld = ["Hello", " ", "World"].reduce(
+    (acc, word) => acc + word, "Say "
+);
+console.log(helloWorld);
