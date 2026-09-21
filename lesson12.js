@@ -113,4 +113,8 @@ console.log(result);
 const hasEven = numBers.some(n => n % 2 === 0);
 console.log(hasEven);
 
+// every() -- Do all pass?
+// are all even numbers?
+const allEven = numBers.every(n => n % 2 === 0);
+console.log(allEven)
 
