@@ -43,8 +43,8 @@ const greeting = (n) => {
 greeting("Ahad");
 
 // If the function has one parameter, you can omit the parentheses
-//  Why can you remove the {} ? Because an arrow function has a short form
-//  for when its body is just one expression.
+// Why can you remove the {} ? Because an arrow function has a short form
+// for when its body is just one expression.
 // Multiple statements → braces
 // One expression → braces can be removed
 numbers.forEach(number => console.log(number / 2));
@@ -161,3 +161,35 @@ const helloWorld = ["Hello", " ", "World"].reduce(
     (acc, word) => acc + word, "Say "
 );
 console.log(helloWorld);
+
+const mult = numBers.reduce(
+    (m, n) => m * n, 1
+);
+console.log(mult);
+
+// A subtle but important concept: these methods don't all mutate
+/*
+Usually non-mutating:
+    map()
+    filter()
+    find()
+    some()
+    every()
+    reduce()
+They don't modify the original array just by doing their normal job.
+
+Mutation methods I've already learned:
+    push()
+    pop()
+    shift()
+    unshift()
+These modify the array.
+
+forEach → DO
+map     → TRANSFORM
+filter  → KEEP
+find    → FIRST
+some    → ANY?
+every   → ALL?
+reduce  → COMBINE
+*/
