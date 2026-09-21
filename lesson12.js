@@ -107,3 +107,10 @@ console.log(evenNumbers);
 const result = numBers.find(n => n > 4);
 console.log(result);
 
+// some() — does at least one pass?
+// asking a yes/no question. eg: Is there at least one even number?
+// stops when it gets a true
+const hasEven = numBers.some(n => n % 2 === 0);
+console.log(hasEven);
+
+
