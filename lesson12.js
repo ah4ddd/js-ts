@@ -66,6 +66,7 @@ fruits.forEach((fruit, index) => {
 // and creates a NEW array containing the results.
 // Take every element → transform it → put the result into a new array.
 // map() always gives you a new array
+// map = transform
 const doubled = numbers.map(function (number) {
     // Give map() the result for each number,
     // so it can put those results into the new array
@@ -88,3 +89,13 @@ console.log(tripled)
 // forEach → performs an action for every element.
 // map → transforms every element and gives you a new array.
 
+// filter() — keep only what passes a condition
+// filter() does NOT transform the values
+// filter() asks: Should this element stay?
+// Items aren't transformed. They're either kept or discarded.
+const numBers = [1, 3, 2, 4, 6, 8, 80, 40];
+
+const evenNumbers = numBers.filter(n => {
+    return n % 2 === 0;
+});
+console.log(evenNumbers);
