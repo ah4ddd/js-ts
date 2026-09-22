@@ -11,7 +11,11 @@ const user = {
     age: 21,
     country: "India",
     role: "Software Developer",
-    skils: ["Python", "JavaScript", "TypeScript", "SQL"]
+    skils: ["Python", "JavaScript", "TypeScript", "SQL"],
+    address: {
+        city: "Lucknow",
+        state: "UP"
+    }
 };
 
 // give all the keys as an array.
@@ -77,4 +81,70 @@ for (const key in user) {
     console.log(key, user[key]);
 }
 
-// Object methods vs methods ON objects
+console.log();
+
+// Object.keys/values/entries() isn't mutating your object
+// It creates a new array containing the keys.
+
+// Nested Object
+Object.entries(user).forEach(([k, v]) => {
+    console.log(k, v);
+});
+
+console.log();
+
+// Where Lesson 12 comes back hard
+const upperKeys = Object.keys(user).map(key => key.toUpperCase());
+console.log(upperKeys);
+
+console.log();
+
+const product = {
+    name: "Laptop",
+    price: 70000,
+    stock: 5,
+    brand: "Asus"
+};
+
+const numericEntries = Object.entries(product).filter(([k, v]) =>
+    typeof v === "number");
+
+console.log(numericEntries);
+
+console.log();
+
+// turn an object into a readable string
+Object.entries(user).forEach(([k, v]) => {
+    console.log(`${k} : ${v}`);
+});
+
+// Three Methods to lock in
+/*
+Object.keys()
+        ↓
+[property names]
+
+Object.values()
+        ↓
+[property values]
+
+Object.entries()
+        ↓
+[[key, value], [key, value], ...]
+
+----------------------------------
+
+OBJECT
+  ↓
+┌───────────────┬───────────────┬
+│               │               │
+keys()        values()        entries()
+│               │               │
+↓               ↓               ↓
+keys          values        [key, value]
+array         array          arrays
+│               │               │
+└───────────────┴───────────────┘
+                ↓
+        ARRAY METHODS WORK
+*/
