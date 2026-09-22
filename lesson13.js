@@ -51,8 +51,30 @@ console.log();
 Object.keys(user).forEach(key => {
     console.log(key, user[key]);
 });
+
+console.log();
+
 // Object.entries() makes it cleaner
 // callback parameter + array destructuring
 Object.entries(user).forEach(([key, value]) => {
     console.log(key, value);
 });
+
+console.log();
+
+// Object iteration with for...of
+// For every property in this object, give me its key and its value
+for (const [key, value] of Object.entries(user)) {
+    console.log(key, value);
+};
+
+console.log();
+
+// for...in vs for...of
+// for...of -> Gives you values from an iterable.
+// for...in -> Gives you keys/property names.
+for (const key in user) {
+    console.log(key, user[key]);
+}
+
+// Object methods vs methods ON objects
