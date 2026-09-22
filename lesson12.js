@@ -153,7 +153,7 @@ const total = numBers.reduce(
 console.log(total);
 
 const makeString = numBers.reduce(
-    (acc, n) => acc + " " + n, 0
+    (acc, n) => acc + " " + n, ""
 );
 console.log(makeString);
 
