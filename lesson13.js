@@ -43,3 +43,16 @@ for (const [key, value] of Object.entries(user)) {
 Object.keys(user).forEach(k => {
     console.log(k);
 });
+
+console.log();
+
+// Getting the value dynamically
+// Look for a property literally called "key".
+Object.keys(user).forEach(key => {
+    console.log(key, user[key]);
+});
+// Object.entries() makes it cleaner
+// callback parameter + array destructuring
+Object.entries(user).forEach(([key, value]) => {
+    console.log(key, value);
+});
