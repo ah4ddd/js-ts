@@ -10,7 +10,8 @@ const user = {
     name: "Ahad",
     age: 21,
     country: "India",
-    role: "Software Developer"
+    role: "Software Developer",
+    skils: ["Python", "JavaScript", "TypeScript", "SQL"]
 };
 
 // give all the keys as an array.
@@ -26,3 +27,19 @@ for (const key of keys) {
 
 // give object values in an array (property values)
 console.log(Object.values(user));
+
+// Object.entries() - give both (array of arrays) -> [key, value]
+console.log(Object.entries(user));
+// Now you can iterate over an object and
+// get both the key and value simultaneously
+// const [key, value] -> that's array destructuring
+// gives key = "name", value = "Ahad"
+for (const [key, value] of Object.entries(user)) {
+    console.log(key, value);
+}
+
+// Object.keys + forEach()
+// Produces an array then iterates over that array
+Object.keys(user).forEach(k => {
+    console.log(k);
+});
