@@ -26,3 +26,39 @@ test();
 // console.log(x); <- Fails cos x belongs to test();
 
 // BLOCK SCOPE
+// A block is code surrounded by:
+if (true) {
+    const message = "Hiee";
+    console.log(message);
+}
+// The { } creates a block.
+// And let and const are block-scoped.
+
+// var is different
+// var is function-scoped, not block-scoped.
+
+if (true) {
+    var y = 25;
+}
+confirm.log(y); // works
+// Because the if block doesn't contain var the way it contains let/const.
+// var belongs to the surrounding function scope.
+
+// Note: Use const by default. Use let when reassignment is necessary.
+// Avoid var unless you have a specific reason to deal with legacy code.
+
+//Function + Block scope together
+// Inner → outer: yes.
+// Outer → inner: no.
+function testTwo() {
+    const a = 10;
+    if (true) {
+        const b = 20;
+
+        console.log(a);
+        console.log(b);
+    }
+    console.log(a);
+    //  console.log(b); <- Error because the outer function cannot see b.
+}
+
