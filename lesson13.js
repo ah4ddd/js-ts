@@ -11,7 +11,7 @@ const user = {
     age: 21,
     country: "India",
     role: "Software Developer",
-    skils: ["Python", "JavaScript", "TypeScript", "SQL"],
+    skills: ["Python", "JavaScript", "TypeScript", "SQL"],
     address: {
         city: "Lucknow",
         state: "UP"
