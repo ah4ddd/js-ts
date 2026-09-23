@@ -40,7 +40,7 @@ if (true) {
 if (true) {
     var y = 25;
 }
-confirm.log(y); // works
+console.log(y); // works
 // Because the if block doesn't contain var the way it contains let/const.
 // var belongs to the surrounding function scope.
 
@@ -62,3 +62,19 @@ function testTwo() {
     //  console.log(b); <- Error because the outer function cannot see b.
 }
 
+// Scope Chain
+const global = "GLOBAL";
+
+function outer() {
+    const outerValue = "OUTER";
+    function inner() {
+        const innerValue = "INNER";
+
+        console.log(global);
+        console.log(outerValue);
+        console.log(innerValue);
+    }
+    inner();
+}
+
+outer();
