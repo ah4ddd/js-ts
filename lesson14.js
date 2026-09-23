@@ -63,6 +63,8 @@ function testTwo() {
 }
 
 // Scope Chain
+// If it doesn't find the variable in the current scope,
+// JavaScript searches outward.
 const global = "GLOBAL";
 
 function outer() {
@@ -78,3 +80,39 @@ function outer() {
 }
 
 outer();
+
+// Shadowing
+// Now we get another important concept.
+// You can declare a variable with the same name in an inner scope.
+// That's called shadowing.
+const name = "GLOBAL2"
+function testThree() {
+    const name = "Local"
+    console.log(name)
+}
+
+testThree();
+console.log(name)
+
+// Scope is determined by where code is WRITTEN
+// JavaScript determines scope from the structure/location of your code.
+// lexical → where it's written in the code
+
+// scope vs value
+let age = 21;
+if (true) {
+    age = 22;
+}
+
+// Scope + your previous lessons
+// i is scoped to the loop
+for (let i = 0; i < global.length; i++) {
+    console.log(global[i]);
+}
+
+// a and b are local to that function
+function add(a, b) {
+    return a + b;
+}
+
+// Even the callback parameters exists within that callback's scope.
