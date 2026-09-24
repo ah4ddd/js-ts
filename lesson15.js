@@ -158,3 +158,36 @@ function createLogger(prefix) {
 const errorLog = createLogger("ERROR");
 
 errorLog("Database connection failed");
+
+
+// FINAL CHALLENGE
+function createGreeter(name) {
+
+    let count = 0;
+
+    return {
+        greet() {
+            count++;
+            return `Hello ${name}, call #${count}`;
+        },
+
+        getCount() {
+            return count;
+        }
+    };
+}
+
+const ahad = createGreeter("Ahad");
+const john = createGreeter("John");
+
+console.log(ahad.greet());
+console.log(ahad.greet());
+
+console.log(john.greet());
+
+console.log(ahad.getCount());
+console.log(john.getCount());
+
+console.log(ahad.greet());
+console.log(ahad.getCount());
+console.log(john.getCount());
