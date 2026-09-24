@@ -134,6 +134,20 @@ const multiplier = 2;
     return number * multiplier;
 });
 
+// Classic closure factory
+// Function creates another function customized with some remembered data.
+function multiplyBy(x) {
+    return function (number) {
+        return number * x;
+    };
+}
+
+const double = multiplyBy(2); // closure -> x = 2
+const triple = multiplyBy(3); // closure -> x = 3
+
+console.log(double(10));
+console.log(triple(50));
+
 // errorLog is a function that remembers prefix.
 function createLogger(prefix) {
     return function (message) {
