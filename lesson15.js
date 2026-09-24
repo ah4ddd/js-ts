@@ -112,6 +112,28 @@ user = createUser();
 // It retains access to the lexical environment it needs.
 user();
 
+// Closure + Function parameters
+function greet(name) {
+    return function () {
+        console.log(`Hello ${name}`);
+    };
+}
+
+const greetAhad = greet("Ahad");
+const greetHer = greet("Bae");
+greetAhad();
+greetHer();
+
+// One extremely important distinction: closure vs callback
+// The function is:
+// a callback because it's passed to map()
+// also a closure because it accesses multiplier from its surrounding scope
+const multiplier = 2;
+// a callback can also be a closure
+[1, 2, 3].map(function (number) {
+    return number * multiplier;
+});
+
 // errorLog is a function that remembers prefix.
 function createLogger(prefix) {
     return function (message) {
