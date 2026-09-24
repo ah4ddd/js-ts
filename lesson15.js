@@ -3,7 +3,6 @@
 // variables from the scope where that function was created,
 // even after that outer scope has finished executing.
 
-
 // We're not calling inner.
 // We're returning the function itself.
 // Functions are values (Lesson 7)
@@ -35,7 +34,7 @@ fn();
 // → every counter() call runs increment,
 // which modifies the same remembered count.
 function createCounter() {
-    let count = 0;
+    let count = 0; // needs modification, therefore; let
 
     function increment() {
         count++;
@@ -47,9 +46,14 @@ function createCounter() {
 
 const counter = createCounter();
 
-counter(); // 1
-counter(); // 2
-counter(); // 3
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Multiple counter
+// Each call to createCounter() creates a separate lexical environment.
+const counterB = createCounter();
+console.log(counterB()) // 1
 
 // Closures + scope chain
 // Closure doesn't destroy that rule.
@@ -65,6 +69,48 @@ function gOuter() {
 
 const gs = gOuter();
 gs();
+
+
+// Closure can create private state
+// This is one of the major practical uses of closures:
+// Encapsulation / private state.
+function createBankAccount() {
+
+    let balance = 0;
+
+    return {
+        deposit(amount) {
+            balance += amount;
+        },
+
+        getBalance() {
+            return balance;
+        }
+    };
+}
+
+const account = createBankAccount();
+account.deposit(500);
+console.log(account.getBalance());
+
+// Closures aren't only about variables
+// A closure can capture multiple things.
+function createUser() {
+    const name = "Ahad";
+    const age = 21;
+    const role = "Developer";
+
+    return function () {
+        console.log(name);
+        console.log(age);
+        console.log(role);
+    };
+}
+
+user = createUser();
+// It doesn't just remember one variable.
+// It retains access to the lexical environment it needs.
+user();
 
 // errorLog is a function that remembers prefix.
 function createLogger(prefix) {
