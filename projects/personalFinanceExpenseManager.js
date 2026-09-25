@@ -74,4 +74,30 @@ function totalIncome() {
     return total;
 }
 
+function totalExpense() {
+    let total = 0;
+    for (const expense of selectedUser.transactions) {
+        if (expense.type === "expense") {
+            total += expense.amount;
+        }
+    }
+    return total;
+}
+
 console.log(`Total Income: ${totalIncome()}`);
+console.log(`Total Expense: ${totalExpense()}`);
+console.log(`Saved: ${totalIncome() - totalExpense()}`);
+
+console.log("All Incomes:")
+
+const userExpenses = selectedUser.transactions.filter(
+    transaction => transaction.type === "expense"
+)
+
+const userIncome = selectedUser.transactions.filter(
+    transaction => transaction.type === "income"
+)
+
+console.log();
+console.log("All Incomes:", userIncome);
+console.log("All Expenses:", userExpenses);
