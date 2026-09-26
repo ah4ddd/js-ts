@@ -37,21 +37,21 @@ const user = {
             type: "expense",
             amount: 2000,
             category: "Eating out",
-            descriiption: "Just living"
+            description: "Just living"
         },
         {
             id: 1,
             type: "expense",
             amount: 1500,
             category: "Transport",
-            descriiption: "here and there"
+            description: "here and there"
         },
         {
             id: 1,
             type: "expense",
             amount: 3500,
             category: "Bills",
-            descriiption: "Gas, Internet, electricity, etc"
+            description: "Gas, Internet, electricity, etc"
         }
 
     ]
@@ -115,5 +115,21 @@ const ExpenseSum = userExpenses.reduce(
 );
 
 console.log("Average expense:", ExpenseSum / userExpenses.length);
+
+const largestExpense = userExpenses.reduce(
+    function (largest, transaction) {
+        if (transaction.amount > largest.amount) {
+            return transaction;
+        }
+        return largest;
+    },
+    userExpenses[0]
+);
+
+console.log("Largest Expense");
+console.log(largestExpense.amount);
+console.log(largestExpense.category);
+console.log(largestExpense.description);
+
 
 
