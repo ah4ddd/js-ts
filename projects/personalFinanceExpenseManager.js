@@ -101,3 +101,10 @@ const userIncome = selectedUser.transactions.filter(
 console.log();
 console.log("All Incomes:", userIncome);
 console.log("All Expenses:", userExpenses);
+
+console.log("Total numbers of transactions:",
+    userIncome.length + userExpenses.length);
+
+console.log("Number of Income transactions:", userIncome.length);
+console.log("Number of expense transactions:", userExpenses.length);
+
