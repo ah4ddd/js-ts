@@ -108,3 +108,12 @@ console.log("Total numbers of transactions:",
 console.log("Number of Income transactions:", userIncome.length);
 console.log("Number of expense transactions:", userExpenses.length);
 
+const ExpenseSum = userExpenses.reduce(
+    function (total, transaction) {
+        return total + transaction.amount;
+    }, 0
+);
+
+console.log("Average expense:", ExpenseSum / userExpenses.length);
+
+
