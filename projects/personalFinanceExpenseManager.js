@@ -1,3 +1,5 @@
+const { send } = require("express/lib/response");
+
 const user = {
     id: 1,
     userName: "Ahad",
@@ -101,10 +103,10 @@ const userIncome = selectedUser.transactions.filter(
 console.log();
 console.log("All Incomes:", userIncome);
 console.log("All Expenses:", userExpenses);
+console.log();
 
 console.log("Total numbers of transactions:",
     userIncome.length + userExpenses.length);
-
 console.log("Number of Income transactions:", userIncome.length);
 console.log("Number of expense transactions:", userExpenses.length);
 
@@ -115,6 +117,7 @@ const ExpenseSum = userExpenses.reduce(
 );
 
 console.log("Average expense:", ExpenseSum / userExpenses.length);
+console.log();
 
 const largestExpense = userExpenses.reduce(
     function (largest, transaction) {
@@ -126,10 +129,23 @@ const largestExpense = userExpenses.reduce(
     userExpenses[0]
 );
 
-console.log("Largest Expense");
+console.log("Largest Expense:");
 console.log(largestExpense.amount);
 console.log(largestExpense.category);
 console.log(largestExpense.description);
+console.log();
 
+const smallestExpense = userExpenses.reduce(
+    function (smallest, transaction) {
+        if (transaction.amount < smallest.amount) {
+            return transaction;
+        }
+        return smallest;
+    },
+    userExpenses[0]
+);
 
-
+console.log("Smallest Expense:");
+console.log(smallestExpense.amount);
+console.log(smallestExpense.category);
+console.log(smallestExpense.description);
