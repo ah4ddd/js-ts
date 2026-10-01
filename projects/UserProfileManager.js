@@ -1,7 +1,7 @@
 // FIRST JAVASCRIPT PROJECT
 // Mini User Profile Manager
 
-console.log("====== USER PROFILE ======")
+console.log("======= USER PROFILE =======")
 
 const user = {
     name: "Ahad",
@@ -44,4 +44,4 @@ user.introduce = function introduce() {
 user.introduce();
 
 console.log(user);
-console.log("==========================")
+console.log("============================")
