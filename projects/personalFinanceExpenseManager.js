@@ -1,5 +1,3 @@
-const { send } = require("express/lib/response");
-
 const user = {
     id: 1,
     userName: "Ahad",
