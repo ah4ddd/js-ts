@@ -14,45 +14,45 @@ const user = {
             type: "income",
             amount: 50000,
             category: "Salary",
-            description: "Monthtly salary"
+            description: "Monthly salary"
         },
         {
-            id: 1,
+            id: 2,
             type: "income",
             amount: 10000,
             category: "Freelance",
             description: "Gig work"
         },
         {
-            id: 1,
+            id: 3,
             type: "expense",
             amount: 5000,
             category: "Investing",
             description: "SIP"
         },
         {
-            id: 1,
+            id: 4,
             type: "expense",
             amount: 8000,
             category: "Groceries",
             description: "Just survival"
         },
         {
-            id: 1,
+            id: 5,
             type: "expense",
             amount: 2000,
             category: "Eating out",
             description: "Just living"
         },
         {
-            id: 1,
+            id: 6,
             type: "expense",
             amount: 1500,
             category: "Transport",
             description: "here and there"
         },
         {
-            id: 1,
+            id: 7,
             type: "expense",
             amount: 3500,
             category: "Bills",
@@ -84,7 +84,7 @@ function totalIncome() {
     return total;
 }
 
-function totalExpense() {
+function totalExpenses() {
     let total = 0;
     for (const expense of selectedUser.transactions) {
         if (expense.type === "expense") {
@@ -94,14 +94,18 @@ function totalExpense() {
     return total;
 }
 
+const income = totalIncome();
+const expenses = totalExpenses();
+const balance = income - expenses;
+
 console.log("----------------------------------------");
 console.log("FINANCIAL SUMMARY");
 console.log("----------------------------------------");
 console.log();
 
-console.log(`Total Income: ${totalIncome()}`);
-console.log(`Total Expense: ${totalExpense()}`);
-console.log(`Balance: ${totalIncome() - totalExpense()}`);
+console.log(`Total Income: ${income}`);
+console.log(`Total Expense: ${expenses}`);
+console.log(`Balance: ${balance}`);
 console.log();
 
 const userExpenses = selectedUser.transactions.filter(
@@ -135,7 +139,7 @@ console.log("Number of Income transactions:", userIncome.length);
 console.log("Number of expense transactions:", userExpenses.length);
 console.log();
 
-const ExpenseSum = userExpenses.reduce(
+const expenseSum = userExpenses.reduce(
     function (total, transaction) {
         return total + transaction.amount;
     }, 0
@@ -146,7 +150,7 @@ console.log("EXPENSE ANALYSIS");
 console.log("----------------------------------------");
 console.log();
 
-console.log("Average expense:", ExpenseSum / userExpenses.length);
+console.log("Average expense:", expenseSum / userExpenses.length);
 console.log();
 
 const largestExpense = userExpenses.reduce(
