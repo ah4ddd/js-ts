@@ -70,7 +70,16 @@ const user3 = {
         console.log(`My name is ${this.name}.`);
         console.log(`I am ${this.age} years old.`)
         console.log(`I live in ${this.city}.`)
+    },
+    // `this` can modify object too
+    birthday() {
+        this.age++;
     }
+
 }
 
 user3.introduce();
+user3.birthday();
+
+console.log(user3.age);
+
