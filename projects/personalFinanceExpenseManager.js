@@ -177,3 +177,5 @@ const smallestExpense = userExpenses.reduce(
 console.log("Smallest Expense:");
 console.log(smallestExpense.amount);
 console.log(smallestExpense.category);
+console.log();
+console.log("========================================");
