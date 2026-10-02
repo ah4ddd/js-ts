@@ -47,7 +47,11 @@ const ahad = {
 
 const john = {
     name: "John"
-}
+};
+
+const siya = {
+    name: "Siya"
+};
 
 // new property called introduce to the ahad object.
 ahad.introduce = introduce;
@@ -55,3 +59,18 @@ john.introduce = introduce;
 
 ahad.introduce();
 john.introduce();
+
+// `this` with multiple properties
+const user3 = {
+    name: "Ahad",
+    age: 21,
+    city: "Lucknow",
+
+    introduce() {
+        console.log(`My name is ${this.name}.`);
+        console.log(`I am ${this.age} years old.`)
+        console.log(`I live in ${this.city}.`)
+    }
+}
+
+user3.introduce();
