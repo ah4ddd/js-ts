@@ -1,3 +1,8 @@
+console.log("========================================");
+console.log("PERSONAL FINANCE ANALYZER");
+console.log("========================================");
+console.log();
+
 const user = {
     id: 1,
     userName: "Ahad",
@@ -57,6 +62,11 @@ const user = {
     ]
 };
 
+console.log("User");
+console.log("Name:", user.userName);
+console.log("Age:", user.age);
+console.log();
+
 const selectUserId = 1;
 const users = [user];
 
@@ -84,11 +94,15 @@ function totalExpense() {
     return total;
 }
 
+console.log("----------------------------------------");
+console.log("FINANCIAL SUMMARY");
+console.log("----------------------------------------");
+console.log();
+
 console.log(`Total Income: ${totalIncome()}`);
 console.log(`Total Expense: ${totalExpense()}`);
-console.log(`Saved: ${totalIncome() - totalExpense()}`);
-
-console.log("All Incomes:")
+console.log(`Balance: ${totalIncome() - totalExpense()}`);
+console.log();
 
 const userExpenses = selectedUser.transactions.filter(
     transaction => transaction.type === "expense"
@@ -98,21 +112,39 @@ const userIncome = selectedUser.transactions.filter(
     transaction => transaction.type === "income"
 )
 
+console.log("----------------------------------------");
+console.log("DETAILED TRANSACTIONS");
+console.log("----------------------------------------");
 console.log();
-console.log("All Incomes:", userIncome);
-console.log("All Expenses:", userExpenses);
+
+console.log("INCOME :");
+console.log(userIncome);
+console.log();
+console.log("EXPENSE :")
+console.log(userExpenses);
+console.log();
+
+console.log("----------------------------------------");
+console.log("TRANSACTION SUMMARY");
+console.log("----------------------------------------");
 console.log();
 
 console.log("Total numbers of transactions:",
     userIncome.length + userExpenses.length);
 console.log("Number of Income transactions:", userIncome.length);
 console.log("Number of expense transactions:", userExpenses.length);
+console.log();
 
 const ExpenseSum = userExpenses.reduce(
     function (total, transaction) {
         return total + transaction.amount;
     }, 0
 );
+
+console.log("----------------------------------------");
+console.log("EXPENSE ANALYSIS");
+console.log("----------------------------------------");
+console.log();
 
 console.log("Average expense:", ExpenseSum / userExpenses.length);
 console.log();
@@ -130,7 +162,6 @@ const largestExpense = userExpenses.reduce(
 console.log("Largest Expense:");
 console.log(largestExpense.amount);
 console.log(largestExpense.category);
-console.log(largestExpense.description);
 console.log();
 
 const smallestExpense = userExpenses.reduce(
@@ -146,4 +177,3 @@ const smallestExpense = userExpenses.reduce(
 console.log("Smallest Expense:");
 console.log(smallestExpense.amount);
 console.log(smallestExpense.category);
-console.log(smallestExpense.description);
