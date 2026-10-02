@@ -74,8 +74,12 @@ const user3 = {
     // `this` can modify object too
     birthday() {
         this.age++;
+    },
+    // `this` and parameters
+    saysomethin(message) {
+        console.log(this.name);
+        console.log(message);
     }
-
 }
 
 user3.introduce();
@@ -83,3 +87,19 @@ user3.birthday();
 
 console.log(user3.age);
 
+// This makes methods powerful
+// The methods can operate on the object that called them.
+const bankAccount = {
+    balance: 10000,
+    deposit(amount) {
+        this.balance += amount;
+    },
+    withdraw(amount) {
+        this.balance -= amount;
+    }
+};
+
+bankAccount.deposit(18000);
+bankAccount.withdraw(8000);
+
+console.log(bankAccount.balance);
