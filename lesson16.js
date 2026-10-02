@@ -103,3 +103,25 @@ bankAccount.deposit(18000);
 bankAccount.withdraw(8000);
 
 console.log(bankAccount.balance);
+
+user3.saysomethin("Guten Morgen");
+
+// this → who is calling me?
+// parameter → what data was passed to me?
+
+// with arrow function It does not create its own this.
+// Instead, it uses the this from the surrounding lexical environment.
+// the arrow function preserves the surrounding `this`
+const user4 = {
+    name: "Ahad",
+
+    greet() {
+        const inner = () => {
+            console.log(this.name);
+        };
+
+        inner();
+    }
+};
+
+user4.greet();
