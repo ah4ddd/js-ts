@@ -125,3 +125,12 @@ const user4 = {
 };
 
 user4.greet();
+
+const user5 = {
+    name: "Aisha",
+    meet() {
+        console.log("Hey", this.name)
+    }
+}
+
+user5.meet();
