@@ -14,6 +14,7 @@ const animal = {
 
 // It creates a new object whose prototype is the object you provide.
 // doesn't modify animal. It gives dog its own property
+// Dog is an object. Animal is another object. Dog's prototype is animal.
 const dog = Object.create(animal);
 
 dog.eat();
@@ -63,6 +64,12 @@ pet.eat = function () {
 };
 
 const cow = Object.create(pet);
-
+// cow doesn't actually contain either method
+// Yet cow can use both because JavaScript keeps walking upward
+// until it finds the requested property.
 cow.eat();
 cow.breathe();
+
+// Property lookup vs scope lookup
+// For variables: JavaScript uses the scope chain.
+// For object properties: JavaScript uses the prototype chain when necessary.
