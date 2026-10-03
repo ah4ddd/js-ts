@@ -28,3 +28,22 @@ cat.name = "Iris";
 
 console.log(cat.name);
 cat.eat();
+
+// THIS explains something i've already been using
+// inside your array -> map, filter, reduce...
+// So where did those methods come from ?
+// 💥 Array prototypes.
+
+// same with strings
+// JavaScript provides them through the string machinery/prototype.
+const userName = "Ahad";
+userName.toUpperCase();
+userName.toLowerCase();
+userName.includes("A");
+
+// Object is the built-in constructor/function.
+// Object.prototype is the object used as the prototype for ordinary objects.
+// And Object.prototype provides common methods inherited by ordinary objects.
+
+// The toolbox is the prototype.
+// The tools inside it are methods.
