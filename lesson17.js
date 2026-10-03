@@ -47,3 +47,22 @@ userName.includes("A");
 
 // The toolbox is the prototype.
 // The tools inside it are methods.
+
+
+// A prototype chain can be longer
+const livingThing = {
+    breathe() {
+        console.log("Breathing...")
+    }
+};
+
+const pet = Object.create(livingThing);
+
+pet.eat = function () {
+    console.log("Eating...")
+};
+
+const cow = Object.create(pet);
+
+cow.eat();
+cow.breathe();
