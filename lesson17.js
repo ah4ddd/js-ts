@@ -38,9 +38,9 @@ cat.eat();
 // same with strings
 // JavaScript provides them through the string machinery/prototype.
 const userName = "Ahad";
-userName.toUpperCase();
-userName.toLowerCase();
-userName.includes("A");
+console.log(userName.toUpperCase());
+console.log(userName.toLowerCase());
+console.log(userName.includes("A"));
 
 // Object is the built-in constructor/function.
 // Object.prototype is the object used as the prototype for ordinary objects.
