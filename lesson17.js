@@ -73,3 +73,25 @@ cow.breathe();
 // Property lookup vs scope lookup
 // For variables: JavaScript uses the scope chain.
 // For object properties: JavaScript uses the prototype chain when necessary.
+
+/*
+PROPERTY LOOKUP
+
+object
+  │
+  ├── Has property? ── YES → use it
+  │
+  └── NO
+       ↓
+    prototype
+       │
+       ├── Has property? ── YES → use it
+       │
+       └── NO
+            ↓
+         prototype's prototype
+            ↓
+           ...
+            ↓
+           null
+*/
