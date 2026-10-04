@@ -40,4 +40,9 @@ class Dog {
 const dog1 = new Dog("Maxxy", 2);
 const dog2 = new Dog("Buddy", 4);
 
+// Dog.prototype (That's prototypes underneath classes)
 dog1.bark();
+// connecting Lesson 17 and Lesson 18.
+console.log(Object.getPrototypeOf(ahad) === User.prototype);
+
+console.log(Object.getOwnPropertyNames(User.prototype));
