@@ -15,6 +15,10 @@ class User {
     greet() {
         console.log(`Hello, I'm ${this.name}`);
     }
+    // Classes can have getters
+    get info() {
+        return `${this.name}, ${this.age}`;
+    }
 }
 
 // Then you create actual objects — called instances.
@@ -32,21 +36,21 @@ ahad.greet();
 john.greet();
 
 // defining what a Dog object should look like and what it can do.
-class Dog {
+class Animal {
     constructor(name, age) {
         this.name = name;
         this.age = age;
     }
-    bark() {
-        console.log(`${this.name} says Woof!`)
+    eat() {
+        console.log(`${this.name} is Eating...`)
     }
 }
 
-const dog1 = new Dog("Maxxy", 2);
-const dog2 = new Dog("Buddy", 4);
+const cat = new Animal("Misa", 2);
+const rabbit = new Animal("Iris", 4);
 
 // Dog.prototype (That's prototypes underneath classes)
-dog1.bark();
+cat.eat();
 // connecting Lesson 17 and Lesson 18.
 console.log(Object.getPrototypeOf(ahad) === User.prototype);
 
@@ -73,8 +77,31 @@ class BankAccount {
     }
 
     showBalance() {
-        console.log(this.balance);
+        console.log("Total Balance:", this.balance);
     }
 }
 
+const account = new BankAccount("Ahad", 10000);
 
+// The methods are shared through: BankAccount.prototype
+account.deposit(5000);
+account.withdraw(2000);
+account.showBalance();
+
+// A getter behaves like a property while executing a function underneath.
+console.log(ahad.info);
+
+// Inheritance
+// extends creates the inheritance relationship
+// basically establishes that Dog inherits from Animal.
+// Now Dog can have its own methods
+class Dog extends Animal {
+    bark() {
+        console.log(this.name, "woofs")
+    }
+}
+
+// PROTOTYPE CHAIN
+const dog = new Dog("Lion", 1);
+dog.eat();
+dog.bark();
