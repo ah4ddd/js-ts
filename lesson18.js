@@ -44,6 +44,9 @@ class Animal {
     eat() {
         console.log(`${this.name} is Eating...`)
     }
+    speak() {
+        console.log("Some animal sound...")
+    }
 }
 
 const cat = new Animal("Misa", 2);
@@ -96,12 +99,29 @@ console.log(ahad.info);
 // basically establishes that Dog inherits from Animal.
 // Now Dog can have its own methods
 class Dog extends Animal {
+    constructor(name, breed) {
+        // super(name) calls the parent constructor.
+        // If a subclass defines a constructor,
+        // call super(...) before using this.
+        super(name);
+        this.breed = breed;
+    }
     bark() {
         console.log(this.name, "woofs")
+    }
+    speak() {
+        // Go to my parent class's prototype and use its speak method.
+        super.speak();
+        console.log("woof!")
     }
 }
 
 // PROTOTYPE CHAIN
-const dog = new Dog("Lion", 1);
+const dog = new Dog("Lion", "Cat");
 dog.eat();
 dog.bark();
+// Closer property wins.
+dog.speak();
+
+// super
+// Now suppose Dog overrides the method but still wants Animal's version
