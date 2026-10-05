@@ -22,9 +22,14 @@ class User {
 // creates the instance, inside the constructor and
 // `this.` refers to new object being created
 const ahad = new User("Ahad", 21);
+const john = new User("John", 25)
 
 console.log(ahad.name);
+
+// Multiple objects, one method
+// But they use the same prototype method.
 ahad.greet();
+john.greet();
 
 // defining what a Dog object should look like and what it can do.
 class Dog {
@@ -46,3 +51,30 @@ dog1.bark();
 console.log(Object.getPrototypeOf(ahad) === User.prototype);
 
 console.log(Object.getOwnPropertyNames(User.prototype));
+
+// Constructor ≠ class
+// The class is the overall blueprint/definition.
+// The constructor is the special initialization method
+// that runs when you do: new User(...)
+
+// A class can have multiple methods
+class BankAccount {
+    constructor(owner, balance) {
+        this.owner = owner;
+        this.balance = balance;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+    }
+
+    withdraw(amount) {
+        this.balance -= amount;
+    }
+
+    showBalance() {
+        console.log(this.balance);
+    }
+}
+
+
