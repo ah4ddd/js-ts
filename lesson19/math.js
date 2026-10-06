@@ -9,5 +9,9 @@ export const substract = (a, b) => {
     return a - b;
 };
 
+const multiply = (a, b) => {
+    return a * b;
+}
+
 // Export at bottom
-// export { add, substract }
+export { multiply }
