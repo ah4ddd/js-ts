@@ -10,3 +10,19 @@ import { add as sum, substract, multiply } from "./math.js";
 console.log(sum(10, 10));
 console.log(substract(15, 10));
 console.log(multiply(10, 10));
+
+/*
+NAMED
+export { add }
+        ↓
+import { add }
+
+
+DEFAULT
+export default User
+        ↓
+import User
+
+One default export, A module can have: export default ...
+only once.
+*/
