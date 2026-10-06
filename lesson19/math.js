@@ -15,3 +15,10 @@ const multiply = (a, b) => {
 
 // Export at bottom
 export { multiply }
+
+// Modules have their own scope
+// The module's internal variables stay inside that module
+// unless explicitly exported.
+// This is basically encapsulation
+const secret = 45;
+console.log(secret)

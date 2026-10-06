@@ -4,8 +4,9 @@
 // 3. Your own modules — files you create and import with paths
 
 // The { add } syntax means: Import the named export called add
-import { add, substract, multiply } from "./math.js";
+// -> ./ means current directory
+import { add as sum, substract, multiply } from "./math.js";
 
-console.log(add(10, 10));
+console.log(sum(10, 10));
 console.log(substract(15, 10));
 console.log(multiply(10, 10));
