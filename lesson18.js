@@ -52,7 +52,7 @@ class Animal {
 const cat = new Animal("Misa", 2);
 const rabbit = new Animal("Iris", 4);
 
-// Dog.prototype (That's prototypes underneath classes)
+// Animal.prototype (That's prototypes underneath classes)
 cat.eat();
 // connecting Lesson 17 and Lesson 18.
 console.log(Object.getPrototypeOf(ahad) === User.prototype);
