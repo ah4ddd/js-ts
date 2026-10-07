@@ -49,3 +49,15 @@ function divide(a, b) {
 }
 
 divide(12, 0);
+
+// Custom errors
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "ValidationError";
+    }
+}
+
+throw new ValidationError("Email is invalid");
+
+//
