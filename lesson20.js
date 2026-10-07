@@ -26,4 +26,10 @@ function withdraw(balance, amount) {
     return balance - amount;
 }
 
-withdraw(1000, 500);
+// throw + catch
+try {
+    const result = withdraw(1000, 5000);
+    console.log(result);
+} catch (error) {
+    console.log(error.message);
+}
