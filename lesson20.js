@@ -11,7 +11,7 @@ try {
     const result = JSON.parse("Hello");
     console.log(result);
 } catch (error) {
-    console.log(error.name);
+    console.error("Failed to parse JSON:", error.name);
 } finally {
     console.log("Always runs")
 }
@@ -58,6 +58,34 @@ class ValidationError extends Error {
     }
 }
 
-throw new ValidationError("Email is invalid");
+// throw new ValidationError("Email is invalid");
 
-//
+// Error travel upward
+// An uncaught exception moves back up that stack looking for a handler.
+function a() {
+    b();
+}
+
+function b() {
+    c();
+}
+
+function c() {
+    throw new Error("Boom");
+}
+
+// Nested try...catch
+// The inner catch handles it, so the outer catch
+// doesn't receive that same exception.
+// You generally don't need deeply nested error handling.
+try {
+    try {
+        throw new Error("Boom");
+    } catch (error) {
+        console.log("Inner catch");
+    }
+} catch (error) {
+    console.log("Outer catch");
+}
+
+// A very important rule: don't swallow errors
