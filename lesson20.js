@@ -33,3 +33,19 @@ try {
 } catch (error) {
     console.log(error.message);
 }
+
+// throw immediately interrupts the current flow
+console.log("A");
+// throw new Error("Boom");
+console.log("B");
+
+// throw doesn't have to be inside a function
+// But in real programs, you'll often see errors thrown from functions:
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Cannot divide by zero");
+    }
+    return a / b;
+}
+
+divide(12, 0);
