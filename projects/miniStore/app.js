@@ -15,3 +15,23 @@ const selectedProduct = products.find(
 );
 
 console.log(selectedProduct);
+
+const category = "Electronics";
+
+const selectedCategory = products.filter(
+    product => product.category === category
+);
+
+console.log(selectedCategory);
+
+const belowPrice = products.filter(
+    below => below.price < 5000
+);
+
+console.log(belowPrice);
+
+const audioProduct = products.some(
+    product => product.category === "Audio"
+);
+
+console.log("Do we have audio product ?", audioProduct);
