@@ -8,30 +8,47 @@ const products = [
     new Product(5, "Headphones", 5000, "Audio", 8)
 ];
 
-const selectedUserId = 3;
-
+// Find product by ID
 const selectedProduct = products.find(
-    id => id.id === selectedUserId
+    product => product.id === 3
 );
 
 console.log(selectedProduct);
 
-const category = "Electronics";
-
+// Filter by category
 const selectedCategory = products.filter(
-    product => product.category === category
+    product => product.category === "Electronics"
 );
 
 console.log(selectedCategory);
 
+// Find products below a certain price
 const belowPrice = products.filter(
-    below => below.price < 5000
+    product => product.price < 5000
 );
 
 console.log(belowPrice);
 
-const audioProduct = products.some(
-    product => product.category === "Audio"
+// Is any product out of stock?
+const hasOutOfStock = products.some(
+    product => product.stock === 0
 );
 
-console.log("Do we have audio product ?", audioProduct);
+console.log("Do we have an out-of-stock product?", hasOutOfStock);
+
+// Do all products have stock?
+const allHaveStock = products.every(
+    product => product.stock > 0
+);
+
+console.log("Do all products have stock?", allHaveStock);
+
+// Calculate total inventory value
+const totalValue = products.reduce(
+    (total, product) => {
+        return total + product.price * product.stock;
+    },
+    0
+);
+
+console.log("Total inventory value:", totalValue);
