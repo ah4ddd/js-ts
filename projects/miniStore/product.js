@@ -3,14 +3,19 @@ class Product {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.catagory = category;
+        this.category = category;
         this.stock = stock;
     }
+
     restock(quantity) {
-        this.stock += quantity
+        this.stock += quantity;
     }
+
     sell(quantity) {
-        this.stock -= quantity
+        if (quantity > this.stock) {
+            throw new Error("Not enough stock");
+        }
+
+        this.stock -= quantity;
     }
 }
-
