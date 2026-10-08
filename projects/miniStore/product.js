@@ -19,3 +19,5 @@ class Product {
         this.stock -= quantity;
     }
 }
+
+export default Product;
