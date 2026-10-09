@@ -1,8 +1,6 @@
 class Cart {
     constructor() {
-        this.items = [
-
-        ];
+        this.items = [];
     }
 
     addProduct(product, quantity) {
@@ -11,17 +9,26 @@ class Cart {
         }
 
         if (!Number.isInteger(quantity) || quantity <= 0) {
-            throw new Error("Quantity must be positive integer")
+            throw new Error("Quantity must be a positive integer");
         }
+
         const existingItem = this.items.find(
             item => item.product.id === product.id
         );
-        const currentQuantity = existingItem ? existingItem.quantity : 0;
+
+        let currentQuantity;
+        if (existingItem) {
+            currentQuantity = existingItem.quantity;
+        } else {
+            currentQuantity = 0;
+        }
+
         const newQuantity = currentQuantity + quantity;
 
         if (newQuantity > product.stock) {
             throw new Error("Not enough stock");
         }
+
         if (existingItem) {
             existingItem.quantity = newQuantity;
         } else {
@@ -37,12 +44,14 @@ class Cart {
         if (index === -1) {
             throw new Error("Product not found in cart");
         }
+
         this.items.splice(index, 1);
     }
 
     getTotal() {
         return this.items.reduce(
-            (total, item) => total + item.product.price * item.quantity,
+            (total, item) =>
+                total + item.product.price * item.quantity,
             0
         );
     }
