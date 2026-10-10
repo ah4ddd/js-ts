@@ -1,4 +1,5 @@
 import Product from "./product.js";
+import Cart from "./cart.js"
 
 const products = [
     new Product(1, "Laptop", 60000, "Electronics", 5),
@@ -52,3 +53,26 @@ const totalValue = products.reduce(
 );
 
 console.log("Total inventory value:", totalValue);
+
+
+const cart = new Cart();
+
+// Find products in the inventory
+const laptop = products.find(product => product.id === 1);
+const mouse = products.find(product => product.id === 3);
+
+// Add products to the cart
+cart.addProduct(laptop, 1);
+cart.addProduct(mouse, 2);
+
+// Display cart information
+console.log("Cart items:", cart.items);
+console.log("Cart total:", cart.getTotal());
+console.log("Total individual items:", cart.getItemCount());
+
+// Remove the mouse from the cart
+cart.removeProduct(3);
+
+console.log("After removing mouse:");
+console.log("Cart total:", cart.getTotal());
+console.log("Total individual items:", cart.getItemCount());
