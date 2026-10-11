@@ -1,3 +1,5 @@
+// Conditions
+
 const age = 13;
 const hasTicket = false;
 const isVIP = false;
