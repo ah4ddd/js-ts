@@ -1,6 +1,7 @@
 import Product from "./product.js";
-import Cart from "./cart.js"
+import Cart from "./cart.js";
 import createDiscount from "./discount.js";
+import Order from "./order.js";
 
 const products = [
     new Product(1, "Laptop", 60000, "Electronics", 5),
@@ -14,35 +15,30 @@ const products = [
 const selectedProduct = products.find(
     product => product.id === 3
 );
-
 console.log(selectedProduct);
 
 // Filter by category
 const selectedCategory = products.filter(
     product => product.category === "Electronics"
 );
-
 console.log(selectedCategory);
 
 // Find products below a certain price
 const belowPrice = products.filter(
     product => product.price < 5000
 );
-
 console.log(belowPrice);
 
 // Is any product out of stock?
 const hasOutOfStock = products.some(
     product => product.stock === 0
 );
-
 console.log("Do we have an out-of-stock product?", hasOutOfStock);
 
 // Do all products have stock?
 const allHaveStock = products.every(
     product => product.stock > 0
 );
-
 console.log("Do all products have stock?", allHaveStock);
 
 // Calculate total inventory value
@@ -52,10 +48,9 @@ const totalValue = products.reduce(
     },
     0
 );
-
 console.log("Total inventory value:", totalValue);
 
-
+// Create cart
 const cart = new Cart();
 
 // Find products in the inventory
@@ -71,18 +66,30 @@ console.log("Cart items:", cart.items);
 console.log("Cart total:", cart.getTotal());
 console.log("Total individual items:", cart.getItemCount());
 
+// Discount system
 const tenPercentOff = createDiscount(0.10);
 const twentyPercentOff = createDiscount(0.20);
-
-// Calculate discount on the full cart
 const cartTotal = cart.getTotal();
 
 console.log("Original cart total:", cartTotal);
 console.log("After 10% discount:", tenPercentOff(cartTotal));
 console.log("After 20% discount:", twentyPercentOff(cartTotal));
-console.log("Total individual items:", cart.getItemCount());
 
-// Now remove the mouse
+// Create an order
+const order = new Order(
+    1001,
+    "Ahad",
+    cart.items,
+    0.10
+);
+
+console.log("New order:", order.getSummary());
+
+order.confirm();
+
+console.log("Confirmed order:", order.getSummary());
+
+// Remove the mouse from the cart
 cart.removeProduct(3);
 
 console.log("After removing mouse:");

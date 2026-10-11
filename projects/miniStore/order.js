@@ -1,4 +1,3 @@
-
 class Order {
     constructor(orderId, customer, items, discountRate = 0) {
         this.orderId = orderId;
