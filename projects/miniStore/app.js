@@ -1,104 +1,177 @@
-import Product from "./product.js";
 import Cart from "./cart.js";
 import createDiscount from "./discount.js";
 import Order from "./order.js";
-import Customer from "./customer.js";
+import {
+    customer,
+    products,
+    findProductById,
+    filterProductsByCategory,
+    findProductsBelowPrice,
+    hasOutOfStockProduct,
+    allProductsHaveStock,
+    calculateInventoryValue,
+    findHighestPricedProduct
+} from "./data.js";
+import {
+    ProductNotFoundError,
+    InsufficientStockError
+} from "./errors.js";
 
-const products = [
-    new Product(1, "Laptop", 60000, "Electronics", 5),
-    new Product(2, "Keyboard", 3000, "Accessories", 10),
-    new Product(3, "Mouse", 1500, "Accessories", 20),
-    new Product(4, "Monitor", 15000, "Electronics", 0),
-    new Product(5, "Headphones", 5000, "Audio", 8)
-];
+const reportWidth = 56;
+const handledErrors = [];
 
-// Find product by ID
-const selectedProduct = products.find(
-    product => product.id === 3
-);
-console.log(selectedProduct);
+function formatCurrency(amount) {
+    return `₹${amount.toLocaleString("en-IN")}`;
+}
 
-// Filter by category
-const selectedCategory = products.filter(
-    product => product.category === "Electronics"
-);
-console.log(selectedCategory);
+function printLines(...lines) {
+    lines.forEach(line => console.log(line));
+}
 
-// Find products below a certain price
-const belowPrice = products.filter(
-    product => product.price < 5000
-);
-console.log(belowPrice);
+function printHeader(title) {
+    printLines(
+        "=".repeat(reportWidth),
+        title.padStart((reportWidth + title.length) / 2),
+        "=".repeat(reportWidth)
+    );
+}
 
-// Is any product out of stock?
-const hasOutOfStock = products.some(
-    product => product.stock === 0
-);
-console.log("Do we have an out-of-stock product?", hasOutOfStock);
+function printSection(title) {
+    printLines("", title, "-".repeat(reportWidth));
+}
 
-// Do all products have stock?
-const allHaveStock = products.every(
-    product => product.stock > 0
-);
-console.log("Do all products have stock?", allHaveStock);
+function yesNo(value) {
+    return value ? "Yes" : "No";
+}
 
-// Calculate total inventory value
-const totalValue = products.reduce(
-    (total, product) => {
-        return total + product.price * product.stock;
-    },
-    0
-);
-console.log("Total inventory value:", totalValue);
+function recordHandledError(label, action) {
+    try {
+        action();
+    } catch (error) {
+        handledErrors.push({
+            label,
+            message: error.message
+        });
+    }
+}
 
-// Create cart
+function getProductOrThrow(productId) {
+    const product = findProductById(productId);
+
+    if (!product) {
+        throw new ProductNotFoundError(`Product ID ${productId} does not exist in inventory`);
+    }
+
+    return product;
+}
+
+function addToCartById(cart, productId, quantity) {
+    const product = getProductOrThrow(productId);
+    cart.addProduct(product, quantity);
+}
+
+function checkout(cart, checkoutCustomer, discountCalculator) {
+    if (cart.getItemCount() === 0) {
+        throw new Error("Cannot checkout an empty cart");
+    }
+
+    const checkoutItems = cart.getItems();
+
+    checkoutItems.forEach(({ product, quantity }) => {
+        if (quantity > product.stock) {
+            throw new InsufficientStockError(product, quantity, product.stock);
+        }
+    });
+
+    checkoutItems.forEach(({ product, quantity }) => {
+        product.sell(quantity);
+    });
+
+    const subtotal = cart.getTotal();
+    const discountedTotal = discountCalculator(subtotal);
+    const discount = subtotal - discountedTotal;
+
+    return new Order(1001, checkoutCustomer, checkoutItems, discount);
+}
+
 const cart = new Cart();
 
-// Find products in the inventory
-const laptop = products.find(product => product.id === 1);
-const mouse = products.find(product => product.id === 3);
-
-// Add products to the cart
-cart.addProduct(laptop, 1);
-cart.addProduct(mouse, 2);
-
-// Display cart information
-console.log("Cart items:", cart.items);
-console.log("Cart total:", cart.getTotal());
-console.log("Total individual items:", cart.getItemCount());
-
-// Discount system
 const tenPercentOff = createDiscount(0.10);
-const twentyPercentOff = createDiscount(0.20);
-const cartTotal = cart.getTotal();
+const selectedProduct = findProductById(3);
+const electronics = filterProductsByCategory("Electronics");
+const belowPrice = findProductsBelowPrice(5000);
+const hasOutOfStock = hasOutOfStockProduct();
+const allHaveStock = allProductsHaveStock();
+const initialInventoryValue = calculateInventoryValue();
+const highestPricedProduct = findHighestPricedProduct();
 
-console.log("Original cart total:", cartTotal);
-console.log("After 10% discount:", tenPercentOff(cartTotal));
-console.log("After 20% discount:", twentyPercentOff(cartTotal));
+addToCartById(cart, 1, 1);
+addToCartById(cart, 3, 2);
+addToCartById(cart, 2, 1);
+addToCartById(cart, 5, 1);
+cart.removeProduct(5);
 
-// Create an order
-const customer = new Customer(
-    1,
-    "Ahad",
-    "ahad@example.com"
-);
+recordHandledError("Invalid quantity", () => addToCartById(cart, 2, 0));
+recordHandledError("Missing product", () => addToCartById(cart, 999, 1));
+recordHandledError("Insufficient stock", () => addToCartById(cart, 5, 99));
+recordHandledError("Remove missing cart item", () => cart.removeProduct(4));
 
-const order = new Order(
-    1001,
-    customer,
-    cart.items,
-    0.10
-);
-
-console.log("New order:", order.getSummary());
-
+const order = checkout(cart, customer, tenPercentOff);
 order.confirm();
 
-console.log("Confirmed order:", order.getSummary());
+recordHandledError("Invalid order operation", () => order.cancel());
 
-// Remove the mouse from the cart
-cart.removeProduct(3);
+const orderSummary = order.getSummary();
 
-console.log("After removing mouse:");
-console.log("Updated cart total:", cart.getTotal());
-console.log("Updated item count:", cart.getItemCount());
+printHeader("MINI STORE");
+
+printSection("CUSTOMER");
+printLines(
+    `Name: ${customer.name}`,
+    `Email: ${customer.email}`
+);
+
+printSection("INVENTORY CHECKS");
+printLines(
+    `Find product ID 3: ${selectedProduct.name} (${formatCurrency(selectedProduct.price)})`,
+    `Electronics: ${electronics.map(({ name }) => name).join(", ")}`,
+    `Below ${formatCurrency(5000)}: ${belowPrice.map(({ name }) => name).join(", ")}`,
+    `Any product out of stock: ${yesNo(hasOutOfStock)}`,
+    `All products have stock: ${yesNo(allHaveStock)}`,
+    `Initial inventory value: ${formatCurrency(initialInventoryValue)}`,
+    `Highest-priced product: ${highestPricedProduct.name}`
+);
+
+printSection("CART");
+orderSummary.items.forEach(({ product, quantity }) => {
+    const itemTotal = product.price * quantity;
+    console.log(
+        `${product.name.padEnd(14)} x ${String(quantity).padEnd(3)} ${formatCurrency(itemTotal)}`
+    );
+});
+
+printLines(
+    "",
+    `Total items: ${cart.getItemCount()}`,
+    `Subtotal: ${formatCurrency(orderSummary.subtotal)}`,
+    `Discount (10%): ${formatCurrency(orderSummary.discount)}`,
+    `Final total: ${formatCurrency(orderSummary.total)}`
+);
+
+printSection("ORDER");
+printLines(
+    `Order ID: ${orderSummary.orderId}`,
+    `Status: ${orderSummary.status.toUpperCase()}`
+);
+
+printSection("HANDLED ERRORS");
+handledErrors.forEach(({ label, message }) => {
+    console.log(`${label}: ${message}`);
+});
+
+printSection("STOCK AFTER CHECKOUT");
+products.forEach(({ name, stock }) => {
+    console.log(`${name.padEnd(14)} ${stock}`);
+});
+
+printLines("", "=".repeat(reportWidth));

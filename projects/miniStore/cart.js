@@ -1,3 +1,15 @@
+import {
+    InvalidQuantityError,
+    ProductNotFoundError,
+    InsufficientStockError
+} from "./errors.js";
+
+function validateQuantity(quantity) {
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+        throw new InvalidQuantityError(quantity);
+    }
+}
+
 class Cart {
     constructor() {
         this.items = [];
@@ -5,12 +17,10 @@ class Cart {
 
     addProduct(product, quantity) {
         if (!product) {
-            throw new Error("Product is required");
+            throw new ProductNotFoundError("Product is required before it can be added to the cart");
         }
 
-        if (!Number.isInteger(quantity) || quantity <= 0) {
-            throw new Error("Quantity must be a positive integer");
-        }
+        validateQuantity(quantity);
 
         const existingItem = this.items.find(
             item => item.product.id === product.id
@@ -26,13 +36,13 @@ class Cart {
         const newQuantity = currentQuantity + quantity;
 
         if (newQuantity > product.stock) {
-            throw new Error("Not enough stock");
+            throw new InsufficientStockError(product, newQuantity, product.stock);
         }
 
         if (existingItem) {
             existingItem.quantity = newQuantity;
         } else {
-            this.items.push({ product, quantity });
+            this.items = [...this.items, { product, quantity }];
         }
     }
 
@@ -42,7 +52,7 @@ class Cart {
         );
 
         if (index === -1) {
-            throw new Error("Product not found in cart");
+            throw new ProductNotFoundError(`Product ID ${productId} is not in the cart`);
         }
 
         this.items.splice(index, 1);
@@ -61,6 +71,13 @@ class Cart {
             (count, item) => count + item.quantity,
             0
         );
+    }
+
+    getItems() {
+        return this.items.map(({ product, quantity }) => ({
+            product,
+            quantity
+        }));
     }
 }
 
