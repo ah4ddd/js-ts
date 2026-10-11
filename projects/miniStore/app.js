@@ -2,6 +2,7 @@ import Product from "./product.js";
 import Cart from "./cart.js";
 import createDiscount from "./discount.js";
 import Order from "./order.js";
+import Customer from "./customer.js";
 
 const products = [
     new Product(1, "Laptop", 60000, "Electronics", 5),
@@ -76,9 +77,15 @@ console.log("After 10% discount:", tenPercentOff(cartTotal));
 console.log("After 20% discount:", twentyPercentOff(cartTotal));
 
 // Create an order
+const customer = new Customer(
+    1,
+    "Ahad",
+    "ahad@example.com"
+);
+
 const order = new Order(
     1001,
-    "Ahad",
+    customer,
     cart.items,
     0.10
 );
