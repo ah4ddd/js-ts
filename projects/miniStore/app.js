@@ -71,15 +71,20 @@ console.log("Cart items:", cart.items);
 console.log("Cart total:", cart.getTotal());
 console.log("Total individual items:", cart.getItemCount());
 
-// Remove the mouse from the cart
-cart.removeProduct(3);
-
 const tenPercentOff = createDiscount(0.10);
 const twentyPercentOff = createDiscount(0.20);
+
+// Calculate discount on the full cart
 const cartTotal = cart.getTotal();
 
-console.log("After removing mouse:");
-console.log("Orignal Cart total:", cartTotal);
+console.log("Original cart total:", cartTotal);
 console.log("After 10% discount:", tenPercentOff(cartTotal));
 console.log("After 20% discount:", twentyPercentOff(cartTotal));
 console.log("Total individual items:", cart.getItemCount());
+
+// Now remove the mouse
+cart.removeProduct(3);
+
+console.log("After removing mouse:");
+console.log("Updated cart total:", cart.getTotal());
+console.log("Updated item count:", cart.getItemCount());
