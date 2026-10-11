@@ -1,5 +1,6 @@
 import Product from "./product.js";
 import Cart from "./cart.js"
+import createDiscount from "./discount.js";
 
 const products = [
     new Product(1, "Laptop", 60000, "Electronics", 5),
@@ -73,6 +74,12 @@ console.log("Total individual items:", cart.getItemCount());
 // Remove the mouse from the cart
 cart.removeProduct(3);
 
+const tenPercentOff = createDiscount(0.10);
+const twentyPercentOff = createDiscount(0.20);
+const cartTotal = cart.getTotal();
+
 console.log("After removing mouse:");
-console.log("Cart total:", cart.getTotal());
+console.log("Orignal Cart total:", cartTotal);
+console.log("After 10% discount:", tenPercentOff(cartTotal));
+console.log("After 20% discount:", twentyPercentOff(cartTotal));
 console.log("Total individual items:", cart.getItemCount());

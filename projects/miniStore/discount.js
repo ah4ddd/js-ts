@@ -17,10 +17,4 @@ function createDiscount(discountRate) {
     };
 }
 
-const tenPercentOff = createDiscount(0.10);
-const twentyPercentOff = createDiscount(0.20);
-const thirtyPercentOff = createDiscount(0.30);
-
-console.log(tenPercentOff(1000));
-console.log(twentyPercentOff(1000));
-console.log(thirtyPercentOff(1000));
+export default createDiscount;
