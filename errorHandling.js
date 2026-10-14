@@ -1,4 +1,4 @@
-ls// Error Handling
+// Error Handling
 // try...catch
 // Instead of the error simply killing execution, the error is caught.
 // error is a variable containing information about the error that was thrown.
