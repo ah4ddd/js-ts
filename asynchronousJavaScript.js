@@ -43,3 +43,17 @@ setTimeout(() => {
 }, 200);
 
 console.log("Three");
+
+// What exactly is setTimeout()?
+// setTimeout(callback, delay);
+// callback -> The function to run later
+// delay -> The minimum delay in milliseconds
+// Here, the function is passed as a callback.
+// But here's the trap: setTimeout() does not guarantee execution at
+// an exact time. It means the callback becomes eligible to run
+// after the delay. If JavaScript is busy, the callback must wait.
+
+setTimeout(() => {
+    console.log("Hello after 3 seconds");
+}, 3000);
+
