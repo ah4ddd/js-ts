@@ -19,6 +19,7 @@ function makeCoffe() {
 console.log("Start");
 makeCoffe();
 console.log("Finish");
+console.log();
 
 /* The applications you eventually want to build:
 - A dashboard that retrieves stock prices from an API.
@@ -43,6 +44,7 @@ setTimeout(() => {
 }, 200);
 
 console.log("Three");
+console.log();
 
 // What exactly is setTimeout()?
 // setTimeout(callback, delay);
@@ -52,8 +54,29 @@ console.log("Three");
 // But here's the trap: setTimeout() does not guarantee execution at
 // an exact time. It means the callback becomes eligible to run
 // after the delay. If JavaScript is busy, the callback must wait.
+// Even with a delay of zero, the callback doesn't execute
+// immediately in the middle of the current synchronous code.
 
 setTimeout(() => {
     console.log("Hello after 3 seconds");
 }, 3000);
+
+// The call stack and the event loop
+// The call stack
+// The stack follows a last in, first out principle:
+// the most recently called function finishes before the function
+// that called it can continue.
+function first() {
+    console.log("First function");
+    second();
+}
+
+function second() {
+    console.log("Second function");
+}
+
+// The stack follows a last in, first out principle: the most recently
+// called function finishes before the function that called it can continue.
+first();
+console.log("Done");
 
