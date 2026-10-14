@@ -162,6 +162,21 @@ one();
 
 console.log("Finished");
 
+// Exercise D — Blocking
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Timer");
+}, 500);
+
+const start = Date.now();
+
+while (Date.now() - start < 1500) {
+    // Intentionally block the JavaScript thread.
+}
+
+console.log("End");
+
 // Exercise E — Build your own
 console.log("Preparing task...");
 
@@ -185,6 +200,8 @@ Call stack: tracks currently executing function calls.
 Event loop: coordinates when eligible callbacks can execute.
 
 Blocking: synchronous work occupies the JavaScript thread and delays other work that needs it.
+
+One final precision note: the event loop is not the same thing as the call stack. The stack tracks executing function calls; the event loop coordinates when eligible callbacks can run. In Node.js, the complete scheduling model has additional details, which we'll learn as needed.
 
 Zero delay isn't immediate: the callback still waits until the current synchronous execution finishes.
 
