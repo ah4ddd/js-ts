@@ -79,4 +79,36 @@ function second() {
 // called function finishes before the function that called it can continue.
 first();
 console.log("Done");
+console.log();
 
+// The event loop
+// The event loop helps coordinate when queued asynchronous callbacks can run.
+// Event loop and callback execution
+// Once the callback is eligible and the call stack is available,
+// the callback can execute.
+console.log("Start Timer");
+
+setTimeout(() => {
+    console.log("Time finished");
+}, 1000);
+
+console.log("Timer End")
+
+// What is a callback, and why does it matter here?
+// A callback is a function passed to another function so
+// that the receiving function can invoke it.
+function greetUser(name, callback) {
+    console.log(`Hello ${name}`)
+    callback();
+}
+
+function showMessage() {
+    console.log("Welcome to the store");
+}
+
+greetUser("Ahad", showMessage);
+console.log();
+
+// Remember: callback describes how a function is passed and used. Asynchronous
+// describes when work happens relative to the current execution.
+// They're related, but they aren't synonyms.
