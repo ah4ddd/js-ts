@@ -162,3 +162,31 @@ one();
 
 console.log("Finished");
 
+// Exercise E — Build your own
+console.log("Preparing task...");
+
+setTimeout(() => {
+    console.log("Task completed!")
+}, 2000);
+
+console.log("doing other work...")
+
+/*
+Synchronous: code executes in sequence; the current operation completes before execution proceeds.
+
+Asynchronous: work can be scheduled to complete or continue later, allowing other work to proceed while it is pending.
+
+setTimeout(callback, delay): schedules a callback to become eligible after a minimum delay.
+
+Callback: a function passed to another function for it to invoke.
+
+Call stack: tracks currently executing function calls.
+
+Event loop: coordinates when eligible callbacks can execute.
+
+Blocking: synchronous work occupies the JavaScript thread and delays other work that needs it.
+
+Zero delay isn't immediate: the callback still waits until the current synchronous execution finishes.
+
+Asynchronous isn't the same as parallel: JavaScript can coordinate asynchronous operations without executing all of your JavaScript simultaneously.
+*/
