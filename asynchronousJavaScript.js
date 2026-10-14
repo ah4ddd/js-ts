@@ -112,3 +112,53 @@ console.log();
 // Remember: callback describes how a function is passed and used. Asynchronous
 // describes when work happens relative to the current execution.
 // They're related, but they aren't synonyms.
+
+// Exercise A — Basic ordering
+console.log("A");
+
+setTimeout(() => {
+    console.log("B");
+}, 2000);
+
+console.log("C");
+
+setTimeout(() => {
+    console.log("D");
+}, 0);
+
+console.log("E");
+
+// Exercise B — Nested callbacks
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Inside timer");
+
+    setTimeout(() => {
+        console.log("Inside nested timer");
+    }, 0);
+
+    console.log("After nested timer scheduled");
+}, 1000);
+
+console.log("End");
+
+// Exercise C — Function calls and timers
+function one() {
+    console.log("First");
+
+    setTimeout(() => {
+        console.log("Timer inside first");
+    }, 0);
+
+    two();
+}
+
+function two() {
+    console.log("Second");
+}
+
+one();
+
+console.log("Finished");
+
