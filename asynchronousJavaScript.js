@@ -5,9 +5,20 @@
 // Synchronous means that operations execute in sequence:
 // the next statement normally waits for the current operation to finish.
 
+// Nothing surprising. JavaScript executes the statements in order.
 console.log("First");
 console.log("Second");
 console.log("Third");
+console.log();
+
+// consider this function:
+function makeCoffe() {
+    console.log("Making coffee...")
+}
+
+console.log("Start");
+makeCoffe();
+console.log("Finish");
 
 /* The applications you eventually want to build:
 - A dashboard that retrieves stock prices from an API.
