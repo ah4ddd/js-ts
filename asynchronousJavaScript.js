@@ -29,3 +29,17 @@ console.log("Finish");
 These operations take time.
 Program cannot assume that everything finishes instantly.
 That's where asynchronous JavaScript comes in. */
+
+// Asynchronous execution
+// Now let's introduce a delay using setTimeout().
+// JavaScript print "Two" after approximately 200 milliseconds,
+// But JavaScript didn't stop everything and wait for those two seconds to pass.
+// It continued to the next statement. The delayed callback ran later.
+
+console.log("One")
+
+setTimeout(() => {
+    console.log("Two")
+}, 200);
+
+console.log("Three");
