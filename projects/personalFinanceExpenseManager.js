@@ -107,7 +107,7 @@ console.log(`Total Income: ${income}`);
 console.log(`Total Expense: ${expenses}`);
 console.log(`Balance: ${balance}`);
 console.log();
-
+ra
 const userExpenses = selectedUser.transactions.filter(
     transaction => transaction.type === "expense"
 )
