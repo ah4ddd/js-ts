@@ -34,11 +34,37 @@ console.log(myPromise);
 console.log("A");
 
 const promise = new Promise((resolve) => {
-    console.log("B");
-    resolve("Done");
+    console.log("B"); // Executes immediately
+    resolve("Done"); // Fulfills the Promise when called
+    console.log("C"); // Still executes!
 });
 
-console.log("C");
+console.log("D");
 // The executor runs immediately.
 // The Promise becomes fulfilled when resolve("Done") is called.
 console.log(promise)
+
+// Getting the result with .then()
+// You have a Promise that eventually provides a value.
+// How do you use that value?
+// You attach a handler using .then().
+const myPromise2 = new Promise((resolve) => {
+    resolve("Operation successful");
+});
+
+// .then() attaches a callback that runs when the Promise is fulfilled.
+// .then() schedules its callback to run asynchronously as a microtask.
+myPromise.then((result) => {
+    console.log(result);
+});
+
+console.log("Program finished");
+
+// The callback receives the value passed to resolve().
+const promise3 = new Promise((resolve) => {
+    resolve(100);
+});
+
+promise3.then((result) => {
+    console.log(result * 2);
+});
