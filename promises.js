@@ -56,15 +56,52 @@ const myPromise2 = new Promise((resolve) => {
 // .then() schedules its callback to run asynchronously as a microtask.
 myPromise.then((result) => {
     console.log(result);
+    console.log(result === "Operation successful")
 });
 
 console.log("Program finished");
 
 // The callback receives the value passed to resolve().
-const promise3 = new Promise((resolve) => {
+const myPromise3 = new Promise((resolve) => {
     resolve(100);
 });
 
-promise3.then((result) => {
+myPromise3.then((result) => {
     console.log(result * 2);
 });
+
+// Promises have a rejection handler
+const myPromise4 = new Promise((resolve, reject) => {
+    reject(new Error("Something went wrong"));
+});
+
+// This rejects the Promise with an Error object.
+// handles that rejection.
+// The error parameter receives the rejection reason—in this case,
+// an Error object.
+myPromise4.catch((error) => {
+    console.log(error.message);
+});
+
+// Note: If no rejection handler handles this Promise chain,
+// Node.js may report an unhandled rejection. Depending on the runtime
+// and configuration, this can terminate the process.
+// Don't deliberately leave rejected Promises unhandled in real applications.
+
+// .finally() — code that runs after settlement
+myPromise4.finally(() => {
+    console.log("Operation finished")
+});
+
+// Promises chain
+const promise1 = new Promise((resolve) => {
+    resolve(10);
+});
+
+promise1
+    .then((number) => {
+        return number * 2;
+    })
+    .then((result) => {
+        console.log(result);
+    });
