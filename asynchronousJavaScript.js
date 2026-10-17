@@ -11,7 +11,7 @@ console.log("Second");
 console.log("Third");
 console.log();
 
-// consider this function:
+
 function makeCoffe() {
     console.log("Making coffee...")
 }
