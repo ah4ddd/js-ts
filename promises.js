@@ -113,3 +113,18 @@ const pricePromise = new Promise((resolve) => {
 pricePromise.then((price) => {
     console.log(price * 2);
 });
+
+// wrap the timer in a Promise
+function wait(milliseconds) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Task completed");
+        }, milliseconds);
+    });
+}
+
+wait(2000).then((message) => {
+    console.log(message);
+});
+
+
