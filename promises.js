@@ -128,3 +128,65 @@ wait(2000).then((message) => {
 });
 
 
+// My own Promise
+function checkStock(quantity) {
+    return new Promise((resolve, reject) => {
+        if (quantity > 0) {
+            resolve("Stock available");
+        } else {
+            reject(new Error("Invalid quantity"));
+        }
+    });
+}
+
+// Success case
+checkStock(5)
+    .then((message) => {
+        console.log(message);
+    })
+    .catch((error) => {
+        console.log(error.message);
+    })
+    .finally(() => {
+        console.log("Stock check finished");
+    });
+
+// Failure case
+checkStock(0)
+    .then((message) => {
+        console.log(message);
+    })
+    .catch((error) => {
+        console.log(error.message);
+    })
+    .finally(() => {
+        console.log("Stock check finished");
+    });
+
+/*
+Promise: an object representing an eventual result or failure.
+
+Pending: not yet settled.
+
+Fulfilled: succeeded with a fulfillment value.
+
+Rejected: failed with a rejection reason.
+
+resolve(value): fulfills the Promise with a value, or adopts another Promise's eventual outcome when appropriate.
+
+reject(reason): rejects the Promise.
+
+.then(): registers a fulfillment handler and returns a new Promise.
+
+.catch(): registers a rejection handler and returns a new Promise.
+
+.finally(): registers a handler that runs after settlement.
+
+Promise chaining: each handler's return value determines the next Promise's fulfillment value unless it returns another Promise or throws.
+
+Executor: runs synchronously when a Promise is constructed.
+
+Promise handlers: run asynchronously as microtasks.
+
+Error propagation: thrown errors in Promise handlers reject the resulting Promise and propagate until handled.
+*/
