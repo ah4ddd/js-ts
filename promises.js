@@ -93,7 +93,7 @@ myPromise4.finally(() => {
     console.log("Operation finished")
 });
 
-// Promises chain
+// Promise chaining
 const promise1 = new Promise((resolve) => {
     resolve(10);
 });
@@ -105,3 +105,11 @@ promise1
     .then((result) => {
         console.log(result);
     });
+
+const pricePromise = new Promise((resolve) => {
+    resolve(500);
+});
+
+pricePromise.then((price) => {
+    console.log(price * 2);
+});
