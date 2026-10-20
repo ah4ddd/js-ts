@@ -131,7 +131,7 @@ wait(2000).then((message) => {
 // My own Promise
 function checkStock(quantity) {
     return new Promise((resolve, reject) => {
-        if (quantity > 0) {
+        if (Number.isInteger(quantity) && quantity > 0) {
             resolve("Stock available");
         } else {
             reject(new Error("Invalid quantity"));
