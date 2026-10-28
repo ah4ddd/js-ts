@@ -28,7 +28,7 @@ console.log(first_language + " " + second_language);
 
 let isAdmin = true;
 
-console.log("Name:", name);
+console.log("Name:", username);
 
 console.log("Age:", age);
 
