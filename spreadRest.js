@@ -6,6 +6,7 @@
 // Spread with array (one array -> individual values)
 const numbers = [10, 20, 30];
 console.log(...numbers);
+console.log();
 
 // The fundamental mental model
 // Spread: Take one thing → spread its contents out -> ...array
@@ -21,20 +22,24 @@ copy.push(40);
 // Different arrays
 console.log(numbers);
 console.log(copy);
+console.log();
 
 // Adding elements while spreading
 const newNumbers = [0, ...numbers, 40];
 console.log(newNumbers);
+console.log();
 
 // Combining arrays
 const frontend = ["HTML", "CSS", "JavaScript"];
 const backend = ["Python", "fastapi", "SQL"];
+console.log(...frontend, ...backend);
 const skills = [...frontend, ...backend];
 console.log(skills);
+console.log();
 
 // Spread gives you a shallow copy.
 // "Shallow" means the outer container is copied,
-//  but nested objects/arrays aren't recursively cloned.
+// but nested objects/arrays aren't recursively cloned.
 
 // Spread works with objects too
 const user = {
@@ -44,6 +49,7 @@ const user = {
 };
 const userCopy = { ...user }; // creates a new outer object.
 console.log(userCopy);
+console.log();
 
 // Adding properties with object spread
 const updatedUser = {
@@ -51,6 +57,7 @@ const updatedUser = {
     country: "India"
 };
 console.log(updatedUser);
+console.log()
 
 // overwriting properties
 // object properties appearing later overwrite earlier
@@ -62,6 +69,7 @@ const updateTheUser = {
 };
 
 console.log(updateTheUser);
+console.log();
 
 // Spread with function calls
 function add(a, b, c) {
@@ -70,6 +78,7 @@ function add(a, b, c) {
 
 const nums = [50, 60, 70];
 console.log(add(...nums)); // 3 arguments
+console.log();
 
 // Rest Parameters (the rest of the arguments)
 // Individual values -> one array
@@ -77,6 +86,7 @@ function sub(...nums) {
     console.log(nums);
 };
 sub(10, 20, 30);
+console.log();
 
 // Why is it called REST?
 // because it means -> the rest of arguments
@@ -87,6 +97,7 @@ function test(first, second, ...rest) {
     console.log(rest);
 }
 test(10, 20, 30, 40, 50, 60, 70, 80);
+console.log();
 
 // Practical Algorithm
 // Inside each call, numbers is simply an array.
@@ -99,11 +110,14 @@ function total(...numbers) {
 }
 
 console.log(total(150, 10, 40, 55, 70));
+console.log();
+
 
 // Spread + destructuring
 const digits = [4, 5, 6, 7, 8, 9, 10];
 const [first, second, ...rest] = digits;
 console.log(first, second, rest);
+console.log();
 
 // Spread with objects
 const { name, ...otherDetails } = user;
