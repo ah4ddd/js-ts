@@ -1,7 +1,6 @@
 // DESTRUCTURING
 // Take values out of an array or object and put them directly into variables
-// And the normal English meaning
-// Destructure basically means:
+// And the normal English Destructure basically means:
 // to break something structured into its individual parts.
 
 const user = {
@@ -43,7 +42,7 @@ const integers = [40, 50, 60];
 const [d, , f] = integers;
 console.log(d, f);
 
-//Swapping Variables -> Array destructuring being used for assignment
+// Swapping Variables -> Array destructuring being used for assignment
 let g = 10;
 let h = 20;
 [g, h] = [h, g];
