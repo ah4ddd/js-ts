@@ -100,5 +100,15 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
+console.log();
+
 //console.log(j) -> error Because: let j is block-scoped,
 // The j belongs to the for block
+
+for (let i = 0; i < 10; i++) {
+    for (let j = 0; j <= 5; j++) {
+        for (let k = 0; k < 3; k++) {
+            console.log(i, j, k);
+        }
+    }
+}
