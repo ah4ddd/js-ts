@@ -39,4 +39,3 @@ if (username && isAdmin) {
 if (isAdmin || isOwner) {
     console.log("Access granted");
 }
-

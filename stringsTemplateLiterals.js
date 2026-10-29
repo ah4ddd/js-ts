@@ -4,7 +4,7 @@ const userName = "Ahad  ";
 const work = "Coder";
 
 // Template Literals (`backticks` > insert expression using ${})
-console.log(`Hello ${userName.trim()} ${work}`);
+console.log(`Hello ${userName.trim()} ${work}, welcome!`);
 
 // String Properties
 // console.log(name.length);

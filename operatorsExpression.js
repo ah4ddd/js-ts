@@ -9,21 +9,23 @@ console.log(a * b);
 console.log(a / b);
 console.log(a % b);
 
-console.log(2 ** 3);
+console.log(2 ** 3); // 2x2x2
 
 let score = 100;
 score *= 10
 
-console.log(score)
+console.log(score);
 
 // Increment
 let count = 0;
-console.log(count++); // 0 cos: Use the current value, then increment.
+console.log(count);
+console.log(count++); // 0 : Use the current value, then increment.
 count++; // count = count + 1 or count += 1
 console.log(count)
 
 // Decrement
 let subs = 5
+console.log(subs)
 console.log(--subs); // Decrement first, then use the value.
 subs--; // subs = subs - 1 or subs -= 1
 console.log(subs)
