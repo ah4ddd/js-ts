@@ -87,3 +87,11 @@ console.log()
 for (const index in fruits) {
     console.log(index);
 }
+
+console.log();
+
+const films = ["Incendies", "City of God", "400 Blows", "Paris Texas"];
+
+for (const film of films) {
+    console.log(film)
+}

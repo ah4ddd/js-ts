@@ -65,3 +65,7 @@ console.log(multiply)
 const div = (a, b) => a / b;
 
 console.log(div(13, 9))
+
+const plus = (a, b) => a + b;
+
+console.log(plus(10, 10));
