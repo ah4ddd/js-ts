@@ -22,18 +22,25 @@ const user = {
 // The result is an array.
 // Now you can use everything you learned in Lesson 12 on it.
 console.log(Object.keys(user).map(x => x + " wow"));
+console.log();
 
 const keys = Object.keys(user);
 // OBJECT -> Object.keys() -> ARRAY -> array iteration methods
 for (const key of keys) {
     console.log(key);
 }
+console.log();
+
 
 // give object values in an array (property values)
 console.log(Object.values(user));
+console.log();
+
 
 // Object.entries() - give both (array of arrays) -> [key, value]
 console.log(Object.entries(user));
+console.log();
+
 // Now you can iterate over an object and
 // get both the key and value simultaneously
 // const [key, value] -> that's array destructuring
@@ -41,6 +48,8 @@ console.log(Object.entries(user));
 for (const [key, value] of Object.entries(user)) {
     console.log(key, value);
 }
+console.log();
+
 
 // Object.keys + forEach()
 // Produces an array then iterates over that array
