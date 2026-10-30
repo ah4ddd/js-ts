@@ -22,6 +22,7 @@ function doIt(cb) {
 }
 
 doIt(greet); // pass the function
+console.log();
 
 // Why the hell do array methods need callbacks?
 // Cos JavaScript can't magically know your desired operation.
@@ -32,6 +33,7 @@ doIt(greet); // pass the function
 numbers.forEach(function (number) { // Run this function for each value.
     console.log(number * 10);
 });
+console.log();
 
 // Arrow Function =>
 // Putting the function into a variable.
@@ -41,6 +43,7 @@ const greeting = (n) => {
     console.log(`Hello ${n}`)
 }
 greeting("Ahad");
+console.log();
 
 // If the function has one parameter, you can omit the parentheses
 // Why can you remove the {} ? Because an arrow function has a short form
@@ -48,11 +51,13 @@ greeting("Ahad");
 // Multiple statements → braces
 // One expression → braces can be removed
 numbers.forEach(number => console.log(number / 2));
+console.log();
 
 // And if the function contains only one expression that you want to return,
 // you can remove the braces and return
 const double = num => num * 2;
 console.log(double(100));
+console.log();
 
 // The callback can receive more than the value
 // eg: value, index, array
@@ -61,6 +66,7 @@ const fruits = ["kiwi", "orange", "mango"];
 fruits.forEach((fruit, index) => {
     console.log(index, fruit);
 });
+console.log();
 
 // map() -> map() goes through an array, does something to each element,
 // and creates a NEW array containing the results.
@@ -74,6 +80,7 @@ const doubled = numbers.map(function (number) {
 });
 
 console.log(doubled);
+console.log();
 
 // map() with arrow function
 // New array is ultimately stored in tripled,
@@ -84,6 +91,7 @@ console.log(doubled);
 // {} → you must write return
 const tripled = numbers.map(num => num * 3);
 console.log(tripled)
+console.log();
 
 // The most important distinction right now
 // forEach → performs an action for every element.
@@ -99,6 +107,7 @@ const evenNumbers = numBers.filter(n => {
     return n % 2 === 0;
 });
 console.log(evenNumbers);
+console.log();
 
 // find() — find the first matching element
 // find() stops once it finds one
@@ -166,6 +175,7 @@ const mult = numBers.reduce(
     (m, n) => m * n, 1
 );
 console.log(mult);
+console.log();
 
 // A subtle but important concept: these methods don't all mutate
 /*
