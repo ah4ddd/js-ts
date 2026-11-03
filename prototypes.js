@@ -8,7 +8,7 @@
 const animal = {
     name: "Animal",
     eat() {
-        console.log(this.name, "Eating...")
+        console.log(this.name, "is Eating...")
     }
 };
 
@@ -33,7 +33,7 @@ cat.eat();
 // THIS explains something i've already been using
 // inside your array -> map, filter, reduce...
 // So where did those methods come from ?
-// 💥 Array prototypes.
+// Array prototypes.
 
 // same with strings
 // JavaScript provides them through the string machinery/prototype.
