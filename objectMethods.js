@@ -102,7 +102,7 @@ Object.entries(user).forEach(([k, v]) => {
 
 console.log();
 
-// Where Lesson 12 comes back hard
+// Where Lesson 12 comes back
 const upperKeys = Object.keys(user).map(key => key.toUpperCase());
 console.log(upperKeys);
 

@@ -31,6 +31,7 @@ if (true) {
     const message = "Hiee";
     console.log(message);
 }
+
 // The { } creates a block.
 // And let and const are block-scoped.
 
@@ -47,7 +48,7 @@ console.log(y); // works
 // Note: Use const by default. Use let when reassignment is necessary.
 // Avoid var unless you have a specific reason to deal with legacy code.
 
-//Function + Block scope together
+// Function + Block scope together
 // Inner → outer: yes.
 // Outer → inner: no.
 function testTwo() {
