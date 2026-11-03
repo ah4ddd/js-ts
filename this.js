@@ -2,8 +2,8 @@
 // `this` refers to the object that is calling the function
 // when the function is called as an object method.
 
-// this is NOT determined by where the function is written.
-// For a normal function, this is primarily determined by how the function is called.
+// `this` is NOT determined by where the function is written.
+// For a normal function, `this` is primarily determined by how the function is called.
 
 // `this` refers to user -> this.name means user.name
 // The call site determines `this`
@@ -56,9 +56,11 @@ const siya = {
 // new property called introduce to the ahad object.
 ahad.introduce = introduce;
 john.introduce = introduce;
+siya.introduce = introduce;
 
 ahad.introduce();
 john.introduce();
+siya, introduce();
 
 // `this` with multiple properties
 const user3 = {
