@@ -34,8 +34,9 @@ console.log(ahad.name);
 // But they use the same prototype method.
 ahad.greet();
 john.greet();
+console.log();
 
-// defining what a Dog object should look like and what it can do.
+// defining what an Animal object should look like and what it can do.
 class Animal {
     constructor(name, age) {
         this.name = name;
@@ -54,6 +55,8 @@ const rabbit = new Animal("Iris", 4);
 
 // Animal.prototype (That's prototypes underneath classes)
 cat.eat();
+rabbit.eat();
+
 // connecting Lesson 17 and Lesson 18.
 console.log(Object.getPrototypeOf(ahad) === User.prototype);
 
