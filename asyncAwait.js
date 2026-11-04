@@ -58,7 +58,8 @@ greet().then((message) => {
 
 // await is used inside an async function to wait for a Promise's outcome
 // and give you its fulfillment value.
-
+// getPrice() returns a Promise.
+// await waits for its outcome and gives you the fulfillment value, 500.
 async function getNum() {
     const num = await getPrice();
 
@@ -66,3 +67,45 @@ async function getNum() {
 }
 
 getNum();
+
+
+function wait(milliseconds) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+async function mainn() {
+    console.log("First");
+
+    await wait(2000);
+
+    console.log("Second");
+}
+
+mainn();
+
+console.log("Third");
+
+function getProduct() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                name: "Keyboard",
+                price: 3000
+            });
+        }, 1000);
+    });
+}
+
+async function main2() {
+    console.log("Fetching product...");
+
+    const product = await getProduct();
+
+    console.log("Product:", product.name);
+    console.log("Price:", product.price);
+    console.log("Double price:", product.price * 2);
+}
+
+main2();
