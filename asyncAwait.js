@@ -18,11 +18,25 @@ getPrice()
         console.log(error.message);
     });
 
+console.log();
+
 // This works. But imagine you have five
 // or ten sequential asynchronous operations.
 // Long chains can become harder to read,
 // especially when you have conditions, variables,
 // loops, and error handling mixed together.
 
-// JavaScript gives us async and await to make this code easier to express.
+// JavaScript gives us async and await to make this code easier to express
+// async/await lets you write Promise-based asynchronous logic
+// in a sequential-looking style.
+async function main() {
+    const price = await getPrice();
 
+    console.log("Price:", price);
+
+    const result = price * 2;
+
+    console.log("Doubled:", result);
+}
+
+main();
