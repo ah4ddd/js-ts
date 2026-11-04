@@ -1,6 +1,5 @@
 // Lesson 23 — async/await in JavaScript
 
-
 // The problem with Promise chains
 function getPrice() {
     return Promise.resolve(500);
@@ -40,3 +39,30 @@ async function main() {
 }
 
 main();
+
+// The async keyword marks a function as asynchronous and makes
+// that function return a Promise.
+async function greet() {
+    return "Hello";
+}
+
+const result = greet();
+console.log(result);
+
+greet().then((message) => {
+    console.log(message);
+});
+
+// Don't need to write return Promise.resolve(...) inside every async function
+// Returning an ordinary value is usually enough.
+
+// await is used inside an async function to wait for a Promise's outcome
+// and give you its fulfillment value.
+
+async function getNum() {
+    const num = await getPrice();
+
+    console.log(num);
+}
+
+getNum();
