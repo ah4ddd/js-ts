@@ -1,7 +1,7 @@
 // Lesson 22 — Promises in JavaScript
 
 // Last lesson, you learned how JavaScript schedules work to happen later.
-// Today, we're answering a new question:
+// Now, we're answering a new question:
 // When an asynchronous operation finishes later,
 // how do we represent its result and handle success or failure?
 
