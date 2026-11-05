@@ -87,6 +87,7 @@ mainn();
 
 console.log("Third");
 
+// Imagine a store that needs to retrieve a product and then calculate its price.
 function getProduct() {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -110,3 +111,23 @@ async function main2() {
 
 main2();
 
+
+// Error handling with try/catch
+function getProd() {
+    return Promise.reject(new Error("Product not found"));
+}
+
+// When you await a rejected Promise,
+// the rejection is thrown at the await expression.
+// A surrounding try/catch can handle it.
+async function main3() {
+    try {
+        const product = await getProd();
+
+        console.log(product);
+    } catch (error) {
+        console.log("Error:", error.message);
+    }
+}
+
+main3();
