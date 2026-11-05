@@ -131,3 +131,21 @@ async function main3() {
 }
 
 main3();
+
+async function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Cannot divide by zero");
+    }
+    return a / b;
+}
+
+async function main4() {
+    try {
+        const result = await divide(10, 10);
+        console.log(result);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+main4();
