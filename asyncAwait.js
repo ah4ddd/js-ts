@@ -149,3 +149,16 @@ async function main4() {
 }
 
 main4();
+
+// A common trap: await doesn't automatically make operations run
+// one after another
+
+// Each wait starts only when execution reaches it.
+// So these two waits take approximately 3 seconds in total.
+async function main5() {
+    const first = await wait(1000);
+    const second = await wait(2000);
+
+    console.log("Finished");
+}
+
