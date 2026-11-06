@@ -162,3 +162,6 @@ async function main5() {
     console.log("Finished");
 }
 
+// top-level await in supported module contexts
+const resultt = await Promise.resolve(42);
+console.log(resultt);
