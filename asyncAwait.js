@@ -189,3 +189,22 @@ async function main6() {
 }
 
 main6();
+
+
+/*
+async: declares an async function, which always returns a Promise.
+
+await: waits for a Promise's outcome inside an async function and produces its fulfillment value.
+
+Suspension: await pauses the surrounding async function, not the entire JavaScript thread.
+
+Error handling: a rejected Promise awaited inside try throws at the await expression, allowing catch to handle it.
+
+Thrown errors: an error thrown inside an async function rejects the Promise returned by that function.
+
+Sequential operations: awaiting one operation before starting another makes them run sequentially.
+
+Concurrent operations: independent operations can be started before awaiting their results.
+
+Important: async/await is syntax built around Promises; it does not replace Promises.
+*/
