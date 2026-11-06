@@ -165,3 +165,27 @@ async function main5() {
 // top-level await in supported module contexts
 const resultt = await Promise.resolve(42);
 console.log(resultt);
+
+
+// DIY
+function getOrder() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                id: 1001,
+                status: "confirmed",
+                total: 59400
+            });
+        }, 1000);
+    });
+}
+
+async function main6() {
+    const order = await getOrder();
+
+    console.log(`Order ID: ${order.id}`);
+    console.log(`Status: ${order.status}`);
+    console.log(`Total: ${order.total}`);
+}
+
+main6();
