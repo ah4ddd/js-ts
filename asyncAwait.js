@@ -207,9 +207,7 @@ Sequential operations: awaiting one operation before starting another makes them
 Concurrent operations: independent operations can be started before awaiting their results.
 
 Important: async/await is syntax built around Promises; it does not replace Promises.
-*/
 
-/*
 Three things to revise before moving on
 1. Calling an async function returns a Promise, not its raw return value.
 2. Everything after an await resumes in order when the awaited operation settles.
