@@ -251,3 +251,203 @@ The client should handle that failure gracefully.
 
 Important: A status code tells you the outcome of an HTTP request. It doesn't automatically explain the underlying cause.
 */
+
+/*
+Part 4 — JSON
+Now we're getting to something you'll use constantly in JavaScript backend development.
+
+1. What is JSON?
+JSON stands for JavaScript Object Notation.
+
+It's a lightweight text-based data format used to exchange information between systems.
+
+For example:
+{
+  "id": 42,
+  "name": "Ahad",
+  "age": 22,
+  "isDeveloper": true,
+  "skills": ["JavaScript", "Python", "SQL"]
+}
+
+This represents a user and their information.
+
+JSON is widely used in APIs because it's readable, compact, and supported by virtually every modern programming language.
+
+You might already have used JSON while working with Flask.
+
+Here's an important distinction:
+JSON is not a JavaScript object.
+
+They look similar, but they are different things.
+JavaScript object
+const user = {
+  id: 42,
+  name: "Ahad",
+  age: 22,
+  isDeveloper: true
+};
+
+
+JSON
+{
+  "id": 42,
+  "name": "Ahad",
+  "age": 22,
+  "isDeveloper": true
+}
+
+
+Notice the differences:
+- JSON property names must use double quotes.
+- JSON strings must use double quotes.
+- JSON doesn't allow functions.
+- JSON doesn't allow undefined.
+- JSON doesn't allow comments.
+- JSON doesn't allow trailing commas.
+This is valid JavaScript:
+const user = {
+  name: "Ahad",
+  greet() {
+    console.log("Hello");
+  }
+};
+
+
+But it is not valid JSON because JSON cannot represent functions.
+
+JSON is a data format, not a programming language.
+
+2. JSON.stringify()
+Suppose you have a JavaScript object:
+const user = {
+  name: "Ahad",
+  age: 22,
+  isDeveloper: true
+};
+
+
+You want to convert it into JSON text.
+
+You use:
+JSON.stringify()
+
+
+Example:
+const user = {
+  name: "Ahad",
+  age: 22,
+  isDeveloper: true
+};
+
+const jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+console.log(typeof jsonData);
+
+
+Output:
+{"name":"Ahad","age":22,"isDeveloper":true}
+string
+
+
+Pay attention to this:
+
+JSON.stringify() converts a JavaScript value into a JSON string.
+
+The resulting value is a string, not an object.
+
+Why does this matter?
+
+Because when you send data through an HTTP request, you commonly send JSON text in the request body.
+
+For example:
+const user = {
+  name: "Ahad",
+  age: 22
+};
+
+const body = JSON.stringify(user);
+
+
+Now body contains JSON text that can be transmitted to a server.
+Pretty-printing JSON
+You can also format JSON with indentation:
+const jsonData = JSON.stringify(user, null, 2);
+
+console.log(jsonData);
+
+
+Output:
+{
+  "name": "Ahad",
+  "age": 22
+}
+
+
+The second argument is a replacer. The third argument controls indentation.
+
+For now, remember the basic form:
+JSON.stringify(value)
+
+
+3. JSON.parse()
+Now let's reverse the operation.
+
+Imagine a server sends you this JSON string:
+const jsonData = '{"name":"Ahad","age":22}';
+
+
+This is a string.
+
+You want to work with it as a normal JavaScript object.
+
+Use:
+JSON.parse()
+
+
+Example:
+const jsonData = '{"name":"Ahad","age":22}';
+
+const user = JSON.parse(jsonData);
+
+console.log(user);
+console.log(user.name);
+console.log(user.age);
+console.log(typeof user);
+
+
+Output:
+{ name: 'Ahad', age: 22 }
+Ahad
+22
+object
+
+
+Now you can access its properties like any other JavaScript object.
+Stringify versus parse
+Method	Conversion
+JSON.stringify()	JavaScript value → JSON string
+JSON.parse()	JSON string → JavaScript value
+
+Remember this direction. It's important when working with APIs.
+The JSON conversion cycle
+JavaScript object
+
+{ name: "Ahad" }
+
+JSON.stringify()
+
+JSON string
+
+'{"name":"Ahad"}'
+
+JSON.parse()
+
+JavaScript object again
+
+{ name: "Ahad" }
+
+
+One more important detail: JSON.parse() throws a SyntaxError if the supplied string isn't valid JSON. That's something you'll need to handle when parsing untrusted JSON manually.
+*/
