@@ -180,18 +180,8 @@ Server, delete user 42.
 
 The server might respond with:
 204 No Content
-
-
 Meaning the operation succeeded, but there is no response body.
-Let's put all five together
-Imagine your application manages users.
-Method	Endpoint	Purpose
-GET	/users	Retrieve all users
-GET	/users/42	Retrieve user 42
-POST	/users	Create a user
-PUT	/users/42	Replace user 42
-PATCH	/users/42	Partially update user 42
-DELETE	/users/42	Delete user 42
+
 
 One important backend concept: these methods express intended semantics, but the server determines what actually happens. An API could implement them incorrectly or use a different design.
 */
