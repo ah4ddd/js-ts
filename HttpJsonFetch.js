@@ -473,3 +473,71 @@ console.log(user2.name);
 console.log(user2.age);
 console.log(typeof user2);
 
+/*
+Part 5 — APIs and endpoints
+
+What is an API?
+API stands for Application Programming Interface.
+
+In our context, an API is an interface that allows one application to interact with another application or service.
+
+For example, imagine you build a weather application.
+
+You don't have to build your own global weather measurement infrastructure.
+
+You can communicate with a weather service through its API.
+
+Your application sends a request:
+GET /weather?city=Lucknow
+
+
+The service responds with data:
+{
+  "city": "Lucknow",
+  "temperature": 29,
+  "condition": "Cloudy"
+}
+
+
+Your application reads that data and displays it.
+
+That's API communication.
+What is an endpoint?
+An endpoint is a particular URL through which an API exposes a resource or operation.
+
+For example:
+https://api.example.com/users
+https://api.example.com/products
+https://api.example.com/orders
+
+
+Each endpoint provides access to a particular resource or operation.
+
+Think about your Mini Store project.
+
+A backend might expose:
+Endpoint	Purpose
+/products	Retrieve products
+/products/101	Retrieve a particular product
+/orders	Create or retrieve orders
+/customers	Manage customers
+
+The combination of HTTP method and endpoint tells the server what operation is being requested.
+
+For example:
+GET /products
+
+
+and
+POST /products
+
+
+use the same endpoint but express different intentions.
+API versus HTTP
+These aren't interchangeable.
+- HTTP is a communication protocol.
+- An API is an interface that exposes functionality or data.
+- A REST API is an API designed around REST architectural constraints, commonly using HTTP methods and resource-oriented URLs.
+You'll study REST API design more deeply when you get into backend development
+*/
+
