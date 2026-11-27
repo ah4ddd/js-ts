@@ -563,26 +563,40 @@ You'll study REST API design more deeply when you get into backend development
 async function main() {
     // This initiates an HTTP request.
     // fetch() returns a Promise.
-    const response = await fetch(
-        "http://jsonplaceholder.typicode.com/users/1"
-    );
+    try {
+        const response = await fetch(
+            "http://jsonplaceholder.typicode.com/users/10"
+        );
 
-    // Reading the response with response.json()
-    // response.json() reads the response body and parses
-    // the JSON data into a JavaScript value.
-    const user = await response.json();
+        // Reading the response with response.json()
+        // response.json() reads the response body and parses
+        // the JSON data into a JavaScript value.
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
+        }
 
-    // Accessing the returned data
-    console.log("User ID:", user.id);
-    console.log("Name:", user.name);
-    console.log("Email:", user.email);
-    console.log("City:", user.address.city);
-    console.log();
+        const user = await response.json();
+        console.log(response.status);
+        console.log(response.ok);
+
+        // Accessing the returned data
+        console.log("User ID:", user.id);
+        console.log("Name:", user.name);
+        console.log("Email:", user.email);
+        console.log("City:", user.address.city);
+        console.log();
+    } catch (error) {
+        console.log("Something went wrong:", error.message);
+    }
 }
 
 main();
 
 // Making a POST request using fetch()
+// So far, we've only retrieved data.
+// Now let's send data to a server.
+// The default method for fetch() is GET.
+// To make a POST request, we provide a second argument: an options object.
 async function main2() {
     const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts",
