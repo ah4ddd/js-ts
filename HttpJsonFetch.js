@@ -577,7 +577,29 @@ async function main() {
     console.log("Name:", user.name);
     console.log("Email:", user.email);
     console.log("City:", user.address.city);
+    console.log();
 }
 
 main();
 
+// Making a POST request using fetch()
+async function main2() {
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: "Learning JavaScript",
+                body: "Learning HTTP and fetch API",
+                userId: 1
+            })
+        }
+    );
+    const post = await response.json();
+    console.log(post);
+}
+
+main2();
