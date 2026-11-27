@@ -451,3 +451,25 @@ JavaScript object again
 
 One more important detail: JSON.parse() throws a SyntaxError if the supplied string isn't valid JSON. That's something you'll need to handle when parsing untrusted JSON manually.
 */
+
+const user = {
+    name: "Ahad",
+    age: 21,
+    isDeveloper: true
+};
+
+const jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+console.log(typeof jsonData);
+
+console.log();
+
+const jsonData2 = '{"name": "Sia", "age": 22}';
+const user2 = JSON.parse(jsonData2)
+
+console.log(user2);
+console.log(user2.name);
+console.log(user2.age);
+console.log(typeof user2);
+
