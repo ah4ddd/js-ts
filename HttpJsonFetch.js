@@ -541,3 +541,37 @@ These aren't interchangeable.
 You'll study REST API design more deeply when you get into backend development
 */
 
+// Part 6 — Fetch API
+// Now we're finally going to write JavaScript that communicates
+// with an actual server.
+// 17. What is fetch()?
+// fetch() is a built-in JavaScript function used to make HTTP requests.
+
+// It returns a Promise that fulfills with a Response object
+// when an HTTP response is received.
+
+// In modern Node.js, fetch() is available globally.
+// You don't need to install Axios or import a package to use it.
+
+// Let's trace the complete process:
+// 1. fetch(url) starts the HTTP request and returns a Promise.
+// 2. await fetch(url) gives us the Response object once the response arrives.
+// 3. response.json() reads the response body and returns another Promise.
+// 4. await response.json() gives us the parsed JavaScript data.
+// 5. We can now access properties like user.name and user.email.
+async function main() {
+    // This initiates an HTTP request.
+    // fetch() returns a Promise.
+    const response = await fetch(
+        "http://jsonplaceholder.typicode.com/users/1"
+    );
+
+    // Reading the response with response.json()
+    // response.json() reads the response body and parses
+    // the JSON data into a JavaScript value.
+    const user = await response.json();
+
+    console.log(user);
+}
+
+main();
