@@ -472,6 +472,7 @@ console.log(user2);
 console.log(user2.name);
 console.log(user2.age);
 console.log(typeof user2);
+console.log();
 
 /*
 Part 5 — APIs and endpoints
@@ -571,7 +572,12 @@ async function main() {
     // the JSON data into a JavaScript value.
     const user = await response.json();
 
-    console.log(user);
+    // Accessing the returned data
+    console.log("User ID:", user.id);
+    console.log("Name:", user.name);
+    console.log("Email:", user.email);
+    console.log("City:", user.address.city);
 }
 
 main();
+
