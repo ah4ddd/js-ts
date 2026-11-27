@@ -560,19 +560,21 @@ You'll study REST API design more deeply when you get into backend development
 // 3. response.json() reads the response body and returns another Promise.
 // 4. await response.json() gives us the parsed JavaScript data.
 // 5. We can now access properties like user.name and user.email.
-async function main() {
+async function getUser(userId) {
     // This initiates an HTTP request.
     // fetch() returns a Promise.
     try {
+        console.log("Fetching user...")
+
         const response = await fetch(
-            "http://jsonplaceholder.typicode.com/users/10"
+            `http://jsonplaceholder.typicode.com/users/${userId}`
         );
 
         // Reading the response with response.json()
         // response.json() reads the response body and parses
         // the JSON data into a JavaScript value.
         if (!response.ok) {
-            throw new Error(`HTTP Error: ${response.status}`);
+            throw new Error(`Request failed: ${response.status}`);
         }
 
         const user = await response.json();
@@ -580,24 +582,29 @@ async function main() {
         console.log(response.ok);
 
         // Accessing the returned data
+        console.log("User found!")
         console.log("User ID:", user.id);
         console.log("Name:", user.name);
         console.log("Email:", user.email);
         console.log("City:", user.address.city);
         console.log();
+
     } catch (error) {
         console.log("Something went wrong:", error.message);
     }
 }
+async function fetchUser() {
+    getUser(1);
+}
 
-main();
+fetchUser();
 
 // Making a POST request using fetch()
 // So far, we've only retrieved data.
 // Now let's send data to a server.
 // The default method for fetch() is GET.
 // To make a POST request, we provide a second argument: an options object.
-async function main2() {
+async function main() {
     const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts",
         {
@@ -616,4 +623,4 @@ async function main2() {
     console.log(post);
 }
 
-main2();
+main();
